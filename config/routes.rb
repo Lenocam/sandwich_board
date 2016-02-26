@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
 	root  'static_pages#home'
 	get   'signup'  => 'users#new'
 
@@ -12,4 +11,5 @@ Rails.application.routes.draw do
 		resources :galleries
 		resources :images
 	end
+	resources :account_activations, only: [:edit]
 end
