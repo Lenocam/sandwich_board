@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 	# GET /users/1.json
 	def show
 		@user = User.find(params[:id])
+		@galleries = @user.galleries.page(params[:page])
 	end
 
 	# GET /users/new
@@ -64,7 +65,7 @@ class UsersController < ApplicationController
 
 			# Never trust parameters from the scary internet, only allow the white list through.
 			def user_params
-				params.require(:user).permit(:name, :email, :password, :password_confirmation)
+				params.require(:user).permit(:name, :email, :password, :password_confirmation, {images: []})
 			end
 
 		# Use callbacks to share common setup or constraints between actions.

@@ -9,8 +9,9 @@ class User < ActiveRecord::Base
 										uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-	has_many :galleries
-	has_many :images
+	mount_uploaders :images, ImageUploader
+	has_many :galleries, dependent: :destroy
+	has_many :images, dependent: :destroy
 
 	 # Returns the hash digest of the given string.
 	def User.digest(string)
@@ -31,7 +32,7 @@ class User < ActiveRecord::Base
 		update_attribute(:remember_digest, User.digest(remember_token))
 	end
 
-	# Returns true if the given token matches the digest.
+	# Returns true if the given tokenmatches the digest.
 	def authenticated?(attribute, token)
 		digest = send("#{attribute}_digest")
 		return false if digest.nil?

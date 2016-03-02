@@ -1,20 +1,24 @@
 class GalleriesController < ApplicationController
+	before_action :logged_in_user, only: [:create, :destroy]
 	before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
 	# GET /galleries
 	# GET /galleries.json
 	def index
-		@galleries = Gallery.all
+	 #@galleries = Gallery.all
+		@galleries = current_user.galleries
 	end
 
 	# GET /galleries/1
 	# GET /galleries/1.json
 	def show
+		@galleries = current_user.galleries
 	end
 
 	# GET /galleries/new
 	def new
 		@gallery = Gallery.new
+		#@gallery = current_user.galleries.new
 	end
 
 	# GET /galleries/1/edit
@@ -24,17 +28,14 @@ class GalleriesController < ApplicationController
 	# POST /galleries
 	# POST /galleries.json
 	def create
-		@gallery = Gallery.new(gallery_params)
-
-		respond_to do |format|
+		@gallery = current_user.galleries.build(gallery_params)
 			if @gallery.save
-				format.html { redirect_to @gallery, notice: 'Gallery was successfully created.' }
-				format.json { render :show, status: :created, location: @gallery }
+				flash[:success] = "Gallery Created!"
+				redirect_to root_url
+				#redirect_to 'user_path'
 			else
-				format.html { render :new }
-				format.json { render json: @gallery.errors, status: :unprocessable_entity }
+				render 'new'
 			end
-		end
 	end
 
 	# PATCH/PUT /galleries/1
