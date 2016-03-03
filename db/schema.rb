@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226212047) do
+ActiveRecord::Schema.define(version: 20160303132851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,12 +21,20 @@ ActiveRecord::Schema.define(version: 20160226212047) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.string   "images",     default: [],              array: true
+    t.integer  "user_id"
   end
+
+  add_index "galleries", ["user_id"], name: "index_galleries_on_user_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "gallery_id"
   end
+
+  add_index "images", ["gallery_id"], name: "index_images_on_gallery_id", using: :btree
+  add_index "images", ["user_id"], name: "index_images_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                        null: false
@@ -42,8 +50,12 @@ ActiveRecord::Schema.define(version: 20160226212047) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.string   "images",            default: [],                 array: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "galleries", "users"
+  add_foreign_key "images", "galleries"
+  add_foreign_key "images", "users"
 end

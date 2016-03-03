@@ -1,21 +1,24 @@
 class GalleriesController < ApplicationController
-	before_action :set_gallery, only: [:show, :edit, :update, :destroy]
+	before_action :logged_in_user, only: [:create, :destroy]
+	#before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
 	# GET /galleries
 	# GET /galleries.json
-	def index
-		@galleries = Gallery.all
-	end
+	#def index
+	#	@galleries = Gallery.all
+	#end
 
 	# GET /galleries/1
 	# GET /galleries/1.json
 	def show
+		@gallery = current_user.gallery.find(params[:id])
 	end
 
 	# GET /galleries/new
-	def new
-		@gallery = Gallery.new
-	end
+	#def new
+	#	@gallery = @user.gallery.build(gallery_params)
+	#	#@gallery = Gallery.new
+	#end
 
 	# GET /galleries/1/edit
 	def edit
@@ -24,7 +27,7 @@ class GalleriesController < ApplicationController
 	# POST /galleries
 	# POST /galleries.json
 	def create
-		@gallery = Gallery.new(gallery_params)
+		@gallery = current_user.gallery.build(gallery_params)
 
 		respond_to do |format|
 			if @gallery.save

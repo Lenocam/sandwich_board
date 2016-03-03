@@ -2,5 +2,15 @@
 
 <h3><%= @user.name %></h3>
 
+<div class="col-md-8">
+		<% if @user.galleries.any? %>
+			<h3>Galleries (<%= @user.galleries.count %>)</h3>
+			<ol class="galleries">
+				<%= render @galleries %>
+			</ol>
+			<%= will_paginate @galleries %>
+		<% end %>
+	</div>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
