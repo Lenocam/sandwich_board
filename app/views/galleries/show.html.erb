@@ -7,6 +7,9 @@
 
 <% @gallery.images.each do |image| %>
 	<%= image_tag(image.url)  %>
-<% end %>
+<% end %><br>
+
+<%= link_to 'New Gallery', new_gallery_path %><br>
+
 <%= link_to 'Edit', edit_gallery_path(@gallery) %> |
-<%= link_to 'Back', galleries_path %>
+<%= link_to 'Back', current_user %>
