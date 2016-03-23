@@ -26,7 +26,7 @@ class GalleriesController < ApplicationController
 	# POST /galleries.json
 	def create
 		@gallery = current_user.galleries.build(gallery_params)
-	#	@gallery = Gallery.new(gallery_params)
+		#@image = current_user.images.build(image_params)
 
 		respond_to do |format|
 			if @gallery.save
@@ -71,6 +71,6 @@ class GalleriesController < ApplicationController
 
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def gallery_params
-			params.require(:gallery).permit(:title, {images: []})
+			params.require(:gallery).permit(:title, :image_attributes => [{images: []}, :gallery_id, :name, :user_id, :image_id])
 		end
 end
