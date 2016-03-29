@@ -1,15 +1,13 @@
 <p id="notice"><%= notice %></p>
-
 <p>
 	<strong>Title:</strong>
 	<%= @gallery.title %>
 </p>
-
-<% @gallery.images.each do |image| %>
-	<%= image_tag(image.url)  %>
-<% end %><br>
-
-<%= link_to 'New Gallery', new_gallery_path %><br>
-
+<p>
+	<strong>Images:</strong>
+	<% @gallery.images.each do |i| %>
+		<%= attachment_image_tag(i, :file, :fill, 350, 350, format: "jpg") %>
+	<% end %>
+</p>
 <%= link_to 'Edit', edit_gallery_path(@gallery) %> |
-<%= link_to 'Back', current_user %>
+<%= link_to 'Back', galleries_path %>

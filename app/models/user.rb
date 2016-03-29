@@ -9,8 +9,10 @@ class User < ActiveRecord::Base
 										uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-	has_many :galleries
-	has_many :images
+	has_many :galleries, dependent: :destroy
+	#has_many :images, dependent: :destroy
+
+	#accepts_attachments_for :images, attachment: :file
 
 	 # Returns the hash digest of the given string.
 	def User.digest(string)

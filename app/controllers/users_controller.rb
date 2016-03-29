@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 	# GET /users.json
 	def index
 		@users = User.paginate(page: params[:page])
+		@galleries = @user.galleries.paginate(page: params[:page])
 	end
 
 	# GET /users/1

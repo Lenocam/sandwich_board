@@ -4,24 +4,26 @@
 
 <% if @user.galleries.any? %>
 	<ul>
-		<% @user.galleries.each do |galleries| %>
-		<li><%= link_to galleries.title, galleries %></li>
+		<% @user.galleries.each do |gallery| %>
+		<li><%= link_to gallery.images.first, gallery %></li>
+		<li><%= link_to gallery.title, gallery %></li>
+		<li><%= link_to gallery.images, gallery %></li>
 		<% end %>
 	</ul>
-
 <% end %>
+
+<p>
+	<strong>Images:</strong>
+	<% @gallery.images.each do |i| %>
+		<%= attachment_image_tag(i, :file, :fill, 350, 350, format: "jpg") %>
+	<% end %>
+</p>
+
+
+
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 
-<% if @user.images.any? %>
-	<ul>
-		<% @user.images.each do |images| %>
-		<li><%= link_to images.name, images %></li>
-		<% end %>
-	</ul>
-
-<% end %>
-
 <%= link_to 'New Gallery', new_gallery_path %><br>
-<%= link_to 'New Image', new_image_path %>
