@@ -7,13 +7,14 @@ class UsersController < ApplicationController
 	# GET /users.json
 	def index
 		@users = User.paginate(page: params[:page])
-		@galleries = @user.galleries.paginate(page: params[:page])
 	end
 
 	# GET /users/1
 	# GET /users/1.json
 	def show
 		@user = User.find(params[:id])
+		@galleries = @user.galleries.paginate(page: params[:page])
+
 	end
 
 	# GET /users/new
