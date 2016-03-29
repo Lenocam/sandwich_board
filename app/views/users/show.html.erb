@@ -12,13 +12,6 @@
 	</ul>
 <% end %>
 
-<p>
-	<strong>Images:</strong>
-	<% @gallery.images.each do |i| %>
-		<%= attachment_image_tag(i, :file, :fill, 350, 350, format: "jpg") %>
-	<% end %>
-</p>
-
 
 
 
