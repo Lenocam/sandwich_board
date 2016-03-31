@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'images/create'
+	get 'images/create'
 
 	root  'static_pages#home'
 	get   'signup'  => 'users#new'
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 	resources :users
 	resources :galleries
 	resources :images
+
 
 	resources :account_activations, only: [:edit]
 	resources :password_resets,     only: [:new, :create, :edit, :update]
