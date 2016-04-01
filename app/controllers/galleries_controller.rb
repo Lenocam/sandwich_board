@@ -28,7 +28,6 @@ class GalleriesController < ApplicationController
 	end
 
 	def gallery_params
-		params.require(:gallery).permit(:title, image_attributes: [:id, images_files: {}])
-		#params.require(:gallery).permit(:title, images_files: [])
+		params.require(:gallery).permit(:title, images_files: [])
 	end
 end

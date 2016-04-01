@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'images/new'
+
+  get 'images/create'
+
 	get 'images/create'
 
 	root  'static_pages#home'
