@@ -2,7 +2,7 @@ class GalleriesController < ApplicationController
 	before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@galleries = Gallery.all
+		@galleries = current_user.galleries.all
 	end
 
 	def new
@@ -21,6 +21,21 @@ class GalleriesController < ApplicationController
 					format.json { render json: @gallery.errors, status: :unprocessable_entity }
 				end
 			end
+	end
+	def show
+		@gallery = Gallery.find(params[:id])
+	end
+
+	def update
+		#code
+	end
+
+	def destroy
+		@gallery.destroy
+		respond_to do |format|
+			format.html { redirect_to galleries_url, notice: 'Gallery was successfully destroyed.' }
+			format.json { head :no_content }
+		end
 	end
 	private
 	def set_gallery

@@ -4,7 +4,7 @@ class ImagesController < ApplicationController
 	# GET /images
 	# GET /images.json
 	def index
-		@images = Image.all
+		@images = current_user.images.all
 	end
 
 	# GET /images/1
@@ -24,7 +24,7 @@ class ImagesController < ApplicationController
 	# POST /images
 	# POST /images.json
 	def create
-		@image = Image.new(image_params)
+		@image = current_user.images.new(image_params)
 
 		respond_to do |format|
 			if @image.save
@@ -70,7 +70,5 @@ class ImagesController < ApplicationController
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def image_params
 			params.require(:image).permit(:file)
-			#params.require(:image).permit(:file, {})
-			#params.fetch(:image, {})
 		end
 end

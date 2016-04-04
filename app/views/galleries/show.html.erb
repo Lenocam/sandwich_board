@@ -5,9 +5,10 @@
 </p>
 <p>
 	<strong>Images:</strong>
-	<% @gallery.images.each do |i| %>
-		<%= attachment_image_tag(i, :file, :fill, 350, 350, format: "jpg") %>
+	<% @gallery.images.each do |image| %>
+		<%= link_to attachment_image_tag(image, :file, :fill, 100, 100, format: "jpg"), image %>
 	<% end %>
 </p>
+<%= link_to 'Delete the whole Gallery', @gallery, method: :delete, data: { confirm: 'Are you sure?'} %>
 <%= link_to 'Edit', edit_gallery_path(@gallery) %> |
 <%= link_to 'Back', galleries_path %>

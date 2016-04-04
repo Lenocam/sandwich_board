@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h3><%= @user.name %> Dashboard</h3>
+<h3><%= current_user.name %> Dashboard</h3>
 
-<% if @user.galleries.any? %>
+<% if current_user.galleries.any? %>
 	<ul>
-		<% @user.galleries.each do |gallery| %>
+		<% current_user.galleries.each do |gallery| %>
 		<li><%= link_to gallery.title, gallery %></li>
 		<li><%= link_to attachment_image_tag(gallery.images.first,:file, :fill, 100, 100, format: "jpg"), gallery %></li>
 		<% end %>

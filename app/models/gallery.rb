@@ -7,6 +7,6 @@ class Gallery < ActiveRecord::Base
 	has_many :albums, through: :album_galleries
 
 	accepts_attachments_for :images, attachment: :file, append: true
-	#accepts_nested_attributes_for :images
-	validates_presence_of :title
+	accepts_nested_attributes_for :images
+	validates :title, presence: true
 end
