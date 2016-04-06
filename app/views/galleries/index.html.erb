@@ -15,7 +15,7 @@
 			<tr>
 				<td><%= gallery.title %></td>
 				<td>
-					<%= attachment_image_tag(gallery.images.first, :file, :fill, 200, 200) %>
+					<%= attachment_image_tag(gallery.images.first, :file, :limit, 200, 200) %>
 				</td>
 				<td><%= link_to 'Show', gallery %></td>
 				<td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>

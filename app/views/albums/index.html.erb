@@ -1,23 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Albums</h1>
+<h1><% current_user.name %> Albums</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
 
-  <tbody>
-    <% @albums.each do |album| %>
-      <tr>
-        <td><%= link_to 'Show', album %></td>
-        <td><%= link_to 'Edit', edit_album_path(album) %></td>
-        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+	<tbody>
+		<% @albums.each do |album| %>
+			<tr>
+				<td><%= album.name %></td>
+				<td>
+					<%= attachment_image_tag(album.images.first, :file, :limit, 200, 200) %>
+				</td>
+				<td><%= link_to 'Show', album %></td>
+				<td><%= link_to 'Edit', edit_album_path(album) %></td>
+				<td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	</tbody>
 </table>
 
 <br>

@@ -1,6 +1,6 @@
 class GalleriesController < ApplicationController
 	before_action :set_gallery, only: [:show, :edit, :update, :destroy]
-	
+
 
 	def index
 		@galleries = current_user.galleries.all
@@ -24,11 +24,9 @@ class GalleriesController < ApplicationController
 			end
 	end
 	def show
-		@gallery = Gallery.find(params[:id])
 	end
 
 	def update
-		#code
 	end
 
 	def destroy
@@ -44,6 +42,6 @@ class GalleriesController < ApplicationController
 	end
 
 	def gallery_params
-		params.require(:gallery).permit(:title, images_files: [])
+		params.require(:gallery).permit(:title, :remove_file, images_files: [])
 	end
 end
