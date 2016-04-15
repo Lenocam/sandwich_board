@@ -1,14 +1,14 @@
 
-<%= form_for(@gallery) do |f| %>
+<%= form_for @gallery do |f| %>
 	<div class="field">
-		<%= f.label :title %><br>
-		<%= f.text_field :title %>
+		<%= f.label      	     :title %><br>
+		<%= f.text_field 	     :title %>
 	</div>
 	<div class="field">
-			<%= f.label :images_files %><br>
-			<%= f.attachment_field :images_files, multiple: true, presigned: true, direct: true %>
+		<%= f.label            :images_files %><br>
+		<%= f.attachment_field :images_files, multiple: true, presigned: true, direct: true %>
 	</div>
 	<div class="actions">
-			<%= f.submit %>
+		<%= f.submit %>
 	</div>
 <% end %>

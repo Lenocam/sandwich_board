@@ -19,6 +19,7 @@ gem 'coffee-rails', '~> 4.1.0'
 #Images and storage
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
+gem "refile-postgres"
 #Amazon Storage
 gem "refile-s3"
 

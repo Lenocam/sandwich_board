@@ -18,3 +18,5 @@ class Album < ActiveRecord::Base
 		end
 	end
 end
+#add tags to albums accessable to gallery
+#or find way to add and remove existing albums from gallery
