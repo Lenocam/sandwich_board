@@ -1,14 +1,14 @@
 class GalleriesController < ApplicationController
 	before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
-
 	def index
 		@galleries = current_user.galleries.all
 	end
 
 	def new
 		@gallery = Gallery.new
-		@gallery.images.build
+		@gallery = current_user.galleries.new
+		#@gallery.images.build
 	end
 
 	def create
@@ -23,6 +23,7 @@ class GalleriesController < ApplicationController
 				end
 			end
 	end
+
 	def show
 	end
 
@@ -37,6 +38,11 @@ class GalleriesController < ApplicationController
 		end
 	end
 	private
+
+	def load_parent
+		current_user
+	end
+
 	def set_gallery
 		@gallery = Gallery.find(params[:id])
 	end
