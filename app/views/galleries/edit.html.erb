@@ -1,24 +1,5 @@
-<p id="notice"><%= notice %></p>
-<p>
-	<strong>Title:</strong>
-	<%= @gallery.title %>
-</p>
-<p>
-	<strong>Images:</strong>
-	<% @gallery.images.each do |image| %>
-		<%= link_to attachment_image_tag(image, :file, :fill, 100, 100, format: "jpg"), image %>
-	<% end %>
-</p>
+<h1>Update Gallery</h1>
 
-<%= form_for(@gallery) do |f| %>
-	<%= f.fields_for :images do |form| %>
-		<%= attachment_image_tag form.object, :file, :limit, 200, 200 %>
-		<%= form.checkbox :remove_file%>
-		<%= form.label :remove_file %>
+<%= render 'form' %>
 
-	</div>
-
-	<% end %>
-	<div class="actions">
-			<%= f.submit %>
-<% end %>
+<%= link_to 'Dashboard', user_path(current_user) %>

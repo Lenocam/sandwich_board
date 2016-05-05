@@ -1,4 +1,5 @@
 class GalleriesController < ApplicationController
+	before_action :logged_in_user
 	before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
 	def index
@@ -6,9 +7,10 @@ class GalleriesController < ApplicationController
 	end
 
 	def new
-		@gallery = Gallery.new
 		@gallery = current_user.galleries.new
-		#@gallery.images.build
+		#@gallery = Gallery.new
+		#@gallery = Gallery.new(gallery_params)
+		#@gallery = current_user.galleries.build
 	end
 
 	def create
@@ -28,6 +30,12 @@ class GalleriesController < ApplicationController
 	end
 
 	def update
+		if @gallery.update_attributes(gallery_params)
+			flash[:success] = "Gallery Updated"
+			redirect_to @gallery
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
@@ -37,17 +45,14 @@ class GalleriesController < ApplicationController
 			format.json { head :no_content }
 		end
 	end
-	private
 
-	def load_parent
-		current_user
-	end
+	private
 
 	def set_gallery
 		@gallery = Gallery.find(params[:id])
 	end
 
 	def gallery_params
-		params.require(:gallery).permit(:title, :remove_file, images_files: [])
+		params.require(:gallery).permit(:title, images_files: [])
 	end
 end
