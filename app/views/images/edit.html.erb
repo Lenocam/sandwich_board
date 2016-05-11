@@ -1,6 +1,16 @@
 <h1>Editing Image</h1>
 
-<%= render 'form' %>
+<%= form_for(@image) do |f| %>
+	<div class="field">
+			<%= f.label :file %><br>
+			<%= f.attachment_field :file %>
+	</div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %>
+
+<%# render 'form' %>
 
 <%= link_to 'Show', @image %> |
-<%= link_to 'Back', images_path %>
+<%= link_to 'Back', :back %>

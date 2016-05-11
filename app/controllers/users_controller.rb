@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 	# GET /users/1.json
 	def show
 		@user = User.find(params[:id])
-		@galleries = @user.galleries.paginate(page: params[:page])
+		@galleries = current_user.galleries.paginate(page: params[:page])
 
 	end
 
@@ -66,10 +66,10 @@ class UsersController < ApplicationController
 
 			# Never trust parameters from the scary internet, only allow the white list through.
 			def user_params
-				params.require(:user).permit(:name, :email, :password, :password_confirmation)
-				#images_attributes: { :id, :file_id },
-				#albums_attributes: { :id, :name },
-				#galleries_attributes: { :id, :title })
+				params.require(:user).permit(:name, :email, :password, :password_confirmation,
+				images_attributes:  [:id, :file_id],
+				albums_attributes: [ :id, :name ],
+				galleries_attributes: [ :id, :title ])
 			end
 
 		# Use callbacks to share common setup or constraints between actions.

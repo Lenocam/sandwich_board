@@ -17,8 +17,6 @@ class User < ActiveRecord::Base
 	has_many :albums, dependent: :destroy
 
 	accepts_nested_attributes_for :images, :galleries, :albums, allow_destroy: true
-
-
 	accepts_attachments_for :images, attachment: :file, append: true
 
 

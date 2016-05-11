@@ -1,10 +1,7 @@
-<%= form_for(@image) do |f| %>
+<%= form_for([current_user, @image]) do |f| %>
 	<div class="field">
 			<%= f.label :file %><br>
 			<%= f.attachment_field :file %>
-
-			<%= f.check_box :remove_file %>
-			 <%= f.label :remove_file %>
 	</div>
 	<div class="actions">
 		<%= f.submit %>

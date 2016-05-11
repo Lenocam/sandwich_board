@@ -7,10 +7,7 @@ class GalleriesController < ApplicationController
 	end
 
 	def new
-		@gallery = current_user.galleries.new
-		#@gallery = Gallery.new
-		#@gallery = Gallery.new(gallery_params)
-		#@gallery = current_user.galleries.build
+		@gallery = current_user.galleries.build
 	end
 
 	def create
@@ -32,7 +29,7 @@ class GalleriesController < ApplicationController
 	def update
 		if @gallery.update_attributes(gallery_params)
 			flash[:success] = "Gallery Updated"
-			redirect_to @gallery
+			redirect_to user_gallery_url
 		else
 			render 'edit'
 		end
@@ -54,5 +51,6 @@ class GalleriesController < ApplicationController
 
 	def gallery_params
 		params.require(:gallery).permit(:title, images_files: [])
+
 	end
 end

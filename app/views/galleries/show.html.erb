@@ -9,6 +9,7 @@
 		<%= link_to attachment_image_tag(image, :file, :fill, 100, 100, format: "jpg"), image %>
 	<% end %>
 </p>
-<%= link_to 'Delete the whole Gallery', @gallery, method: :delete, data: { confirm: 'Are you sure?'} %>
-<%= link_to 'Edit', edit_gallery_path(@gallery) %> |
-<%= link_to 'Dashboard', user_path(current_user) %>
+<%= link_to 'Delete the whole Gallery', @gallery, method: :delete, data: { confirm: 'Are you sure?'} %> |
+<%= link_to 'Edit', edit_gallery_url %> |
+<%= link_to 'Dashboard', user_path(current_user) %> |
+<%= link_to 'Back', :back %>
