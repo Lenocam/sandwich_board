@@ -6,6 +6,7 @@ class Gallery < ActiveRecord::Base
 
 	has_many   :album_galleries, dependent: :destroy
 	has_many   :albums, through: :album_galleries
+	#has_many   :images, through: :album_galleries, source: :album
 
 	accepts_attachments_for       :images, attachment: :file, append: true
 	accepts_nested_attributes_for :images
