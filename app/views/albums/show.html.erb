@@ -8,5 +8,6 @@
 	<% end %>
 </p>
 
+<%= link_to 'Delete Album and every image in it', @album, method: :delete, data: { confirm: "Are you ready to burn this album and all the images?"} %>
 <%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', :back %>
+<%= link_to 'Back', user_albums_path(current_user) %>

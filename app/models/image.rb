@@ -1,5 +1,5 @@
 class Image < ActiveRecord::Base
-	belongs_to :user #, dependent: :destroy
+	belongs_to :user
 
 	has_many   :gallery_images, dependent: :destroy
 	has_many   :galleries, through: :gallery_images #, dependent: :destroy

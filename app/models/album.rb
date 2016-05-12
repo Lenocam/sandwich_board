@@ -1,10 +1,10 @@
 class Album < ActiveRecord::Base
-	belongs_to :user, dependent: :destroy
+	belongs_to :user
 
 	has_many   :album_galleries
 	has_many   :galleries, through: :album_galleries #, dependent: :destroy
 
-	has_many   :album_images #, dependent: :destroy
+	has_many   :album_images, dependent: :destroy
 	has_many   :images, through: :album_images
 
 	accepts_attachments_for       :images, attachment: :file, append: true
