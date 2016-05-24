@@ -4,7 +4,13 @@
 
 
 /* HomePage */
+header {
+	display: none;
+}
 
+div .forms {
+	display:none;
+}
 .full-screen {
 	background-size: cover;
 	background-position: center center;
@@ -24,12 +30,12 @@ div.container-fluid {
 img {
 	width: 100vmax;
 	height: 100vmax;
-
 }
 
 h3 {
 	display: none;
 }
+
 /*
 h3 {
 	display: inline-block;
