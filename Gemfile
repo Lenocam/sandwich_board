@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.0'
 gem 'rails', '4.2.5.1'
+gem 'bootstrap-sass'
 
 #Database Type
 # Use postgresql as the database for Active Record
@@ -15,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
+gem "autoprefixer-rails"
 
 #Images and storage
 gem "refile", require: "refile/rails"

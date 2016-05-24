@@ -3,6 +3,9 @@
 		<%= link_to "Sandwich Board", root_path %>
 		<ul class="nav">
 			<li><%= link_to "Home", root_path %></li>
+			<% if !logged_in? %>
+				<li><%= link_to "Sign Up", signup_path, :class => "button" %></li>
+			<% end %>
 			<% if logged_in? && current_user.admin? %>
 				<li><%= link_to "Users", users_path %></li>
 			<% end %>

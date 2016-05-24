@@ -11,7 +11,13 @@ class Gallery < ActiveRecord::Base
 	accepts_attachments_for       :images, attachment: :file, append: true
 	accepts_nested_attributes_for :images
 
+def all_images
+	self.images + self.albums.map(&:images).flatten.uniq
+end
 
+def add_album_to_gallery
+
+end
 
 
 

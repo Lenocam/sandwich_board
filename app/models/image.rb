@@ -8,6 +8,6 @@ class Image < ActiveRecord::Base
 	has_many   :album_images, dependent: :destroy
 	has_many   :albums, through: :album_images #, dependent: :destroy
 
-	attachment :file
+	attachment :file, type: :image
 	validates  :file, presence: true
 end

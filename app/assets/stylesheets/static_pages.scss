@@ -1,3 +1,41 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* HomePage */
+
+.full-screen {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.carousel-inner {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	}
+
+div.container-fluid {
+	padding: 0px;
+}
+
+img {
+	width: 100vmax;
+	height: 100vmax;
+
+}
+
+h3 {
+	display: none;
+}
+/*
+h3 {
+	display: inline-block;
+	padding: 10px;
+	background: #B9121B;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+*/
