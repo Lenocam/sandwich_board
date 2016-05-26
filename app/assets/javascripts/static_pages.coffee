@@ -1,8 +1,7 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-
-$(document).ready ->
+$ ->
 	$item = $('.carousel .item')
 	$wHeight = $(window).height()
 
@@ -25,7 +24,17 @@ $(document).ready ->
 		return
 
 	$('.carousel').carousel
-		interval: 2000
+		interval: 1000
 		pause: 'false'
 
+return
+
+$ ->
+	$('#signup').addClass('.active-form')
+	$('#login').addClass('inactive-form')
+return
+
+$("a").click ->
+	$('#signup').removeClass('.active-form')
+	$('#login').removeClass('inactive-form')
 return

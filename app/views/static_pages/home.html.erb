@@ -1,11 +1,3 @@
-<div class="forms">
-	<div class="signup active">
-		<%= render 'users/form' %>
-	</div>
-	<div class="signin">
-		<%= render 'sessions/new' %>
-	</div>
-</div>
 <div id="mycarousel" class="carousel slide" data-ride="carousel">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
@@ -18,7 +10,42 @@
 
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner" role="listbox">
+			<div class="forms">
+				<div id="signup" class="active-form">
+					<%= form_for(@user) do |f| %>
+					<%= render 'shared/error_messages', object: @user %>
+					<div class="row">
+						<div class="form">
+							<h1>Sign Up</h1>
+
+							<%= f.label :name %><br>
+							<%= f.text_field :name, class: 'form-control' %><br>
+
+							<%= f.label :email %><br>
+							<%= f.email_field :email, class: 'form-control' %><br>
+
+							<%= f.label :password %><br>
+							<%= f.password_field :password, class: 'form-control' %><br>
+
+							<%= f.label :password_confirmation, "Password Confirmation" %><br>
+							<%= f.password_field :password_confirmation, class: 'form-control' %><br>
+						</div><br>
+					</div>
+					<div class="actions">
+						<%= f.submit "Create Account"%>
+					</div>
+					<p>
+						Already a User? <%= link_to "Log In Here!", '#' %>
+					</p>
+					<% end %>
+
+				</div>
+				<div id="login" class="inactive-form">
+					<%= render 'sessions/new' %>
+				</div>
+			</div>
 		<div class="item active">
+
 			<img src="https://unsplash.it/2000/1250?image=397" data-color="lightblue" alt="First Image">
 			<div class="carousel-caption">
 				<h3>First Image</h3>

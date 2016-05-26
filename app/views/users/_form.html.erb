@@ -2,6 +2,7 @@
 <%= render 'shared/error_messages', object: @user %>
 <div class="row">
 	<div class="form">
+		<h1>Sign Up</h1>
 
 		<%= f.label :name %><br>
 		<%= f.text_field :name, class: 'form-control' %><br>
@@ -16,7 +17,14 @@
 		<%= f.password_field :password_confirmation, class: 'form-control' %><br>
 	</div><br>
 </div>
+
 <div class="actions">
-	<%= f.submit %>
+	<%= f.submit "Create Account"%>
 </div>
+
+<p>
+	Already a User? <%= link_to "Log In Here!", new_user_path %>
+</p>
+
+
 <% end %>
