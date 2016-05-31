@@ -1,23 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="Dashboard">
+	<p id="notice"><%= notice %></p>
 
-<h3><%= current_user.name %> Dashboard</h3>
+	<h3><%= current_user.name %>
+		Dashboard</h3>
 
-<% if current_user.galleries.any? %>
+	<% if current_user.galleries.any? %>
 	<ul class="row">
 		<% current_user.galleries.each do |gallery| %>
 		<li><%= link_to gallery.title, gallery %></li>
 		<li><%= link_to attachment_image_tag(gallery.images.first,:file, :fill, 100, 100, format: "jpg"), gallery %></li>
 		<% end %>
 	</ul>
-<% end %>
+	<% end %>
 
+	<%= link_to 'Edit', edit_user_path(current_user) %>
+	|
+	<%= link_to 'Back', users_path %><br>
 
-
-
-
-<%= link_to 'Edit', edit_user_path(current_user) %> |
-<%= link_to 'Back', users_path %><br>
-
-<%= link_to 'New Gallery', new_user_gallery_path(current_user) %><br>
-<%= link_to 'New Album',   new_user_album_path(current_user) %><br>
-<%= link_to 'New Image',   new_user_image_path(current_user) %><br>
+	<%= link_to 'New Gallery', new_user_gallery_path(current_user) %><br>
+	<%= link_to 'New Album',   new_user_album_path(current_user) %><br>
+	<%= link_to 'New Image',   new_user_image_path(current_user) %><br>
+</div>

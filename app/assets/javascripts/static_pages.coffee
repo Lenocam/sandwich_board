@@ -2,39 +2,36 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
-	$item = $('.carousel .item')
-	$wHeight = $(window).height()
+  console.log ("DOM is ready.")
+  $item = $(".carousel .item")
+  $wHeight = $(window).height()
 
-	$item.eq(0).addClass('active');
+  $item.height $wHeight
+  $item.addClass "full-screen"
 
-	$item.height $wHeight
-	$item.addClass 'full-screen'
+  $item.eq(0).addClass "active"
 
-	$('.carousel img').each ->
-		$src = $(this).attr('data-color')
-		$this.parent().css
-			'background-image': 'url(' + src + ')'
-			'background-color': $color
-		$(this).remove()
-		return
+  $(".carousel img").each ->
+    $src = $(this).attr("src")
+    $color = $(this).attr("data-color")
+    $(this).parent().css
+      "background-image": "url(" + $src + ")"
+      "background-color": $color
+    $(this).remove()
+    return
+  $(window).on "resize", ->
+    $wHeight = $(window).height()
+    $item.height $wHeight
+    return
 
-	$(window).on 'resize', ->
-		$wHeight = $(window).height()
-		$item.height $wHeight
-		return
+  $(".carousel").carousel
+    interval: 6000
+    pause: "false"
 
-	$('.carousel').carousel
-		interval: 1000
-		pause: 'false'
-
-return
-
-$ ->
-	$('#signup').addClass('.active-form')
-	$('#login').addClass('inactive-form')
-return
-
-$("a").click ->
-	$('#signup').removeClass('.active-form')
-	$('#login').removeClass('inactive-form')
+  console.log ("Check me out")
+  console.log ("Working here too.")
+  $(".forms p").on "click", ->
+    console.log("Hey it worked everybody!!")
+    $("#signup").toggleClass("active-form").toggleClass("inactive-form")
+    $("#login").toggleClass("active-form").toggleClass("inactive-form")
 return
