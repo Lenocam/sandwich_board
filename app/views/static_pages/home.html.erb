@@ -10,69 +10,65 @@
 
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner" role="listbox">
-			<div class="forms">
-				<div id="signup" class="active-form">
-					<%= form_for(@user) do |f| %>
-					<%= render 'shared/error_messages', object: @user %>
-					<div class="row">
-						<div class="form">
-							<h1>Sign Up</h1>
+		<div class="forms">
+			<div id="signup" class="active-form">
+				<%= form_for(@user) do |f| %>
+				<%= render 'shared/error_messages', object: @user %>
+				<div class="row">
+					<div class="form">
+						<h1>Sign Up</h1>
 
-							<%= f.label :name %><br>
-							<%= f.text_field :name, class: 'form-control' %><br>
+						<%= f.label :name %><br>
+						<%= f.text_field :name, class: 'form-control' %><br>
 
-							<%= f.label :email %><br>
-							<%= f.email_field :email, class: 'form-control' %><br>
+						<%= f.label :email %><br>
+						<%= f.email_field :email, class: 'form-control' %><br>
 
-							<%= f.label :password %><br>
-							<%= f.password_field :password, class: 'form-control' %><br>
+						<%= f.label :password %><br>
+						<%= f.password_field :password, class: 'form-control' %><br>
 
-							<%= f.label :password_confirmation, "Password Confirmation" %><br>
-							<%= f.password_field :password_confirmation, class: 'form-control' %><br>
-						</div><br>
-					</div>
-					<div class="actions">
-						<%= f.submit "Create Account"%>
-					</div>
-					<div id="target">
-						<button id="button_button"type="button" name="button">Click here</button>
-					</div>
-					<div id="other">
-						Trigger the handler
-					</div>
-					<p>
-						Already a User? <%= link_to "Log In Here!", '#' %>
-					</p>
-					<% end %>
-
+						<%= f.label :password_confirmation, "Password Confirmation" %><br>
+						<%= f.password_field :password_confirmation, class: 'form-control' %><br>
+					</div><br>
 				</div>
-				<div id="login" class="inactive-form">
-					<div class="row">
-						<div class="form">
-							<h1>Log In</h1>
-							<%= form_for(:session, url: login_path) do |f| %>
+				<div class="actions">
+					<%= f.submit "Create Account"%>
+				</div>
+				<p>
+					Already a User?
+					<%= link_to "Log In Here!", '#' %>
+				</p>
+				<% end %>
 
-							<%= f.label :email %><br>
-							<%= f.email_field :email, class: 'form-control' %><br>
+			</div>
+			<div id="login" class="inactive-form">
+				<div class="row">
+					<div class="form">
+						<h1>Log In</h1>
+						<%= form_for(:session, url: login_path) do |f| %>
 
-							<%= f.label :password %><br>
-							<%= link_to "(forgot password)", new_password_reset_path %><br>
-							<%= f.password_field :password, class: 'form-control' %><br>
+						<%= f.label :email %><br>
+						<%= f.email_field :email, class: 'form-control' %><br>
 
-							 <%= f.label :remember_me, class: "checkbox inline password_field" do %><br>
-									<%= f.check_box :remember_me %>
-									<span>Remember me on this computer</span>
-								<% end %>
+						<%= f.label :password %><br>
+						<%= link_to "(forgot password)", new_password_reset_path %><br>
+						<%= f.password_field :password, class: 'form-control' %><br>
 
-							<%= f.submit "Log In", class: "button" %><br>
-							<% end %>
+						<%= f.label :remember_me, class: "checkbox inline password_field" do %><br>
+						<%= f.check_box :remember_me %>
+						<span>Remember me on this computer</span>
+						<% end %>
 
-							<p>New User? <%= link_to "Sign up now!", '#' %>
-							</p>
-						</div>
+						<%= f.submit "Log In", class: "button" %><br>
+						<% end %>
+
+						<p>New User?
+							<%= link_to "Sign up now!", '#' %>
+						</p>
 					</div>
 				</div>
 			</div>
+		</div>
 		<div class="item active">
 
 			<img src="https://unsplash.it/2000/1250?image=397" data-color="lightblue" alt="First Image">

@@ -1,13 +1,18 @@
-<p id="notice"><%= notice %></p>
-<p>
-	<strong><%= @album.name %> Album Images:</strong>
-</p>
-<p>
-	<% @album.images.each do |image| %>
-		<%= link_to attachment_image_tag(image, :file, :limit, 150, 150), image %>
-	<% end %>
-</p>
+<div class="album-show">
 
-<%= link_to 'Delete Album and every image in it', @album, method: :delete, data: { confirm: "Are you ready to burn this album and all the images?"} %>
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', user_albums_path(current_user) %>
+	<p id="notice"><%= notice %></p>
+	<p>
+		<strong><%= @album.name %>
+			Album Images:</strong>
+	</p>
+	<p>
+		<% @album.images.each do |image| %>
+		<%= link_to attachment_image_tag(image, :file, :limit, 150, 150), image %>
+		<% end %>
+	</p>
+
+	<%= link_to 'Delete Album and every image in it', @album, method: :delete, data: { confirm: "Are you ready to burn this album and all the images?"} %>
+	<%= link_to 'Edit', edit_album_path(@album) %>
+	|
+	<%= link_to 'Back', user_albums_path(current_user) %>
+</div>

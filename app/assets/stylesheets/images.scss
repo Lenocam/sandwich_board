@@ -1,22 +1,50 @@
 // Place all the styles related to the images controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .image_container {
 	ul {
-		padding:0 0 0 0;
-		margin:0 0 0 0;
+		padding: 0;
+		margin : 0;
 	}
 	ul li {
-		list-style:none;
-		margin: 0px;
+		list-style: none;
+		margin    : 0;
 	}
 	ul li img {
 		cursor: pointer;
 		margin: inherit;
 		height: 100px;
-		width:auto;
+		width : auto;
+	}
+	img:hover {}
+}
+div.image-show {
+	img {
+		max-width : 0;
+		max-height: 0;
+		width     : 200px;
+		height    : 200px;
+		min-width : 200px;
+		min-height: 200px;
+		position  : relative;
+		padding   : 10px;
+		border    : 1px solid #797574;
 	}
 	img:hover {
+		-moz-box-shadow   : 0 0 10px #340303;
+		-webkit-box-shadow: 0 0 10px #340303;
+		box-shadow        : 0 0 10px #340303;
+		border: 2px;
+	}
+}
+div.image-index {
+	img {
+		max-width : 0;
+		max-height: 0;
+		width     : 100px;
+		height    : 100px;
+		min-width : 100px;
+		min-height: 100px;
+		position  : relative;
 	}
 }

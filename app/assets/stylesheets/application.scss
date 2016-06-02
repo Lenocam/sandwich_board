@@ -1,8 +1,16 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 @import "images";
 @import "static_pages";
 @import "_header";
-@import "galleries"
+@import "galleries";
+
+/* Universal Styling */
+li {
+	list-style-type: none;
+}
+
+div.container-fluid.layout {
+	padding-top: 50px;
+}

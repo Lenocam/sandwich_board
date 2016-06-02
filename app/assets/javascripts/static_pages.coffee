@@ -28,10 +28,12 @@ $ ->
     interval: 6000
     pause: "false"
 
-  console.log ("Check me out")
-  console.log ("Working here too.")
-  $(".forms p").on "click", ->
-    console.log("Hey it worked everybody!!")
-    $("#signup").toggleClass("active-form").toggleClass("inactive-form")
-    $("#login").toggleClass("active-form").toggleClass("inactive-form")
+    ### Toggle Forms on HomePage###
+  $(".forms #signup p").on "click", ->
+    $("#signup").removeClass("active-form").addClass("inactive-form")
+    $("#login").addClass("active-form").removeClass("inactive-form")
+
+  $(".forms #login p").on "click", ->
+    $("#signup").addClass("active-form").removeClass("inactive-form")
+    $("#login").removeClass("active-form").addClass("inactive-form")
 return

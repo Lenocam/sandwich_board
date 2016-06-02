@@ -1,17 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="album-index">
 
-<h1><% current_user.name %> Albums</h1>
+	<p id="notice"><%= notice %></p>
 
-<table>
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th colspan="3"></th>
-		</tr>
-	</thead>
+	<h1><% current_user.name %>
+		Albums</h1>
 
-	<tbody>
-		<% @albums.each do |album| %>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th colspan="3"></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @albums.each do |album| %>
 			<tr>
 				<td><%= album.name %></td>
 				<td>
@@ -21,10 +24,11 @@
 				<td><%= link_to 'Edit', edit_album_path(album) %></td>
 				<td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			</tr>
-		<% end %>
-	</tbody>
-</table>
+			<% end %>
+		</tbody>
+	</table>
 
-<br>
+	<br>
 
-<%= link_to 'New Album', new_user_album_path %>
+	<%= link_to 'New Album', new_user_album_path %>
+</div>

@@ -1,21 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="gallery-index">
 
-<h1><%= current_user.name %> Galleries</h1>
+	<p id="notice"><%= notice %></p>
+
+	<h1><%= current_user.name %>
+		Galleries</h1>
 
 	<div class="image_container">
 		<% @galleries.each do |gallery| %>
-			<ul>
-				<li><%= gallery.title %></li>
-				<li>
-					<%= attachment_image_tag(gallery.images.first, :file, :limit, 200, 200) %>
-				</li>
-				<li><%= link_to 'Show', gallery %></li>
-				<li><%= link_to 'Edit', edit_gallery_path(gallery) %></li>
-				<li><%= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-			</ul>
+		<ul>
+			<li><%= gallery.title %></li>
+			<li>
+				<%= attachment_image_tag(gallery.images.first, :file, :limit, 200, 200) %>
+			</li>
+			<li><%= link_to 'Show', gallery %></li>
+			<li><%= link_to 'Edit', edit_gallery_path(gallery) %></li>
+			<li><%= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+		</ul>
 		<% end %>
 	</div class="image_container">
 
-<br>
+	<br>
 
-<%= link_to 'New Gallery', new_user_gallery_path %>
+	<%= link_to 'New Gallery', new_user_gallery_path %>
+</div>

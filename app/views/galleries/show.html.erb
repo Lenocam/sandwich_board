@@ -1,15 +1,22 @@
-<p id="notice"><%= notice %></p>
-<p>
-	<strong>Title: <%= @gallery.title %></strong>
+<div class="gallery-show">
 
-</p>
-<p>
-	<strong>Images:</strong>
-	<% @gallery.images.each do |image| %>
+	<p id="notice"><%= notice %></p>
+	<p>
+		<strong>Title:
+			<%= @gallery.title %></strong>
+
+	</p>
+	<p>
+		<strong>Gallery Images:</strong>
+		<% @gallery.images.each do |image| %>
 		<%= link_to attachment_image_tag(image, :file, :fill, 100, 100, format: "jpg"), image %>
-	<% end %>
-</p>
-<%= link_to 'Delete the whole Gallery', @gallery, method: :delete, data: { confirm: 'Are you sure?'} %> |
-<%= link_to 'Edit', edit_gallery_url %> |
-<%= link_to 'Dashboard', user_path(current_user) %> |
-<%= link_to 'Back', :back %>
+		<% end %>
+	</p>
+	<%= link_to 'Delete the whole Gallery', @gallery, method: :delete, data: { confirm: 'Are you sure?'} %>
+	|
+	<%= link_to 'Edit', edit_gallery_url %>
+	|
+	<%= link_to 'Dashboard', user_path(current_user) %>
+	|
+	<%= link_to 'Back', :back %>
+</div>
