@@ -1,5 +1,20 @@
 <h1>Update Gallery</h1>
 
-<%= render 'form' %>
+<%= form_for(@gallery) do |f| %>
+	<div class="field">
+		<%= f.label      	     :title %><br>
+		<%= f.text_field 	     :title %>
+	</div>
+	<div class="field">
+		<%= f.label            :images_files %><br>
+		<%= f.attachment_field :images_files, multiple: true, presigned: true, direct: true %>
+	</div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %>
+
+
+<%# render 'form' %>
 
 <%= link_to 'Dashboard', user_path(current_user) %>

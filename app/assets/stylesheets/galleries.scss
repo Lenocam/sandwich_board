@@ -1,34 +1,35 @@
 // Place all the styles related to the galleries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-img.attachment.image.file {
-	max-width : 0;
-	max-height: 0;
-	width     : 100px;
-	height    : 100px;
-	min-width : 100px;
-	min-height: 100px;
-	position  : relative;
-}
-.image_container {
-	ul {
-		padding: 0;
-		margin : 0;
+#gallery-index {
+	img.attachment.image.file {
+		max-width : 350px;
+		height    : 150px;
+		width     : auto;
+		min-width : 0;
+		min-height: 0;
+		position  : relative;
 	}
-	ul li {
-		list-style: none;
-		margin    : 0;
-	}
-	ul li img {
-		cursor      : pointer;
-		margin      : inherit;
-		height      : 100px;
-		width       : auto;
-		margin-right: 10px;
-	}
-	img:hover {
-		-moz-box-shadow   : 0 0 10px #340303;
-		-webkit-box-shadow: 0 0 10px #340303;
-		box-shadow        : 0 0 10px #340303;
+	.image_container {
+		ul {
+			padding: 0;
+			margin : 0;
+		}
+		ul li {
+			list-style: none;
+			margin    : 0;
+		}
+		/*ul li img {
+			cursor      : pointer;
+			margin      : inherit;
+			height      : 100px;
+			width       : auto;
+			margin-right: 10px;
+		} */
+		img:hover {
+			-moz-box-shadow   : 0 0 10px #340303;
+			-webkit-box-shadow: 0 0 10px #340303;
+			box-shadow        : 0 0 10px #340303;
+		}
 	}
 }

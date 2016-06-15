@@ -1,16 +1,15 @@
-<div class="gallery-index">
+<div id="gallery-index">
 
 	<p id="notice"><%= notice %></p>
 
-	<h1><%= current_user.name %>
-		Galleries</h1>
+	<h1><%= current_user.name %>'s Galleries</h1>
 
 	<div class="image_container">
 		<% @galleries.each do |gallery| %>
-		<ul>
-			<li><%= gallery.title %></li>
+		<ul class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+			<li><%=link_to gallery.title, gallery %></li>
 			<li>
-				<%= attachment_image_tag(gallery.images.first, :file, :limit, 200, 200) %>
+				<%= link_to attachment_image_tag(gallery.images.first, :file), gallery %>
 			</li>
 			<li><%= link_to 'Show', gallery %></li>
 			<li><%= link_to 'Edit', edit_gallery_path(gallery) %></li>
@@ -21,5 +20,5 @@
 
 	<br>
 
-	<%= link_to 'New Gallery', new_user_gallery_path %>
+	<%= link_to 'New Gallery', new_user_gallery_path(current_user) %>
 </div>

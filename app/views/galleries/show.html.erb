@@ -1,4 +1,4 @@
-<div class="gallery-show">
+<div id="gallery-show">
 
 	<p id="notice"><%= notice %></p>
 	<p>
@@ -9,7 +9,7 @@
 	<p>
 		<strong>Gallery Images:</strong>
 		<% @gallery.images.each do |image| %>
-		<%= link_to attachment_image_tag(image, :file, :fill, 100, 100, format: "jpg"), image %>
+		<%= link_to attachment_image_tag(image, :file, format: "jpg"), image %>
 		<% end %>
 	</p>
 	<%= link_to 'Delete the whole Gallery', @gallery, method: :delete, data: { confirm: 'Are you sure?'} %>

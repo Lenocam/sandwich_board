@@ -1,33 +1,23 @@
-<div class="album-index">
+<div id="album-index">
 
 	<p id="notice"><%= notice %></p>
 
 	<h1><% current_user.name %>
 		Albums</h1>
+	<div class="image_container">
+		<% @albums.each do |album| %>
+		<ul class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+			<li><%= album.name %></li>
 
-	<table>
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th colspan="3"></th>
-			</tr>
-		</thead>
+			<li><%= attachment_image_tag(album.images.first, :file) %></li>
+			<li><%= check_box_tag "selected_albums[]", album.id %></li>
+			<li><%= link_to 'Show', album %></li>
+			<li><%= link_to 'Edit', edit_album_path(album) %></li>
+			<li><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+		</ul>
+		<% end %>
 
-		<tbody>
-			<% @albums.each do |album| %>
-			<tr>
-				<td><%= album.name %></td>
-				<td>
-					<%= attachment_image_tag(album.images.first, :file, :limit, 200, 200) %>
-				</td>
-				<td><%= link_to 'Show', album %></td>
-				<td><%= link_to 'Edit', edit_album_path(album) %></td>
-				<td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-			</tr>
-			<% end %>
-		</tbody>
-	</table>
-
+	</div>
 	<br>
 
 	<%= link_to 'New Album', new_user_album_path %>

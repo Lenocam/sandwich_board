@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require refile
 //= require bootstrap-sprockets
+//= require jquery.flex-images.min
 //= require_tree .

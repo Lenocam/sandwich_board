@@ -1,11 +1,15 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "images";
-@import "static_pages";
-@import "_header";
 @import "galleries";
+@import "images";
+@import "home";
 @import "sessions";
+@import "dashboard";
+@import "scaffolds";
+@import "jquery.flex-images";
+
+
 
 /* Universal Styling */
 li {
@@ -14,4 +18,14 @@ li {
 
 div.container-fluid.layout {
 	padding-top: 50px;
+}
+
+div.image_container {
+	padding-left: 20px;
+}
+
+/* User-Form */
+
+div.user-edit {
+	padding-left: 20px;
 }
