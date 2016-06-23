@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 gem 'rails', '4.2.5.1'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'rails-jasny-bootstrap-extension'
+gem 'rails-bootstrap-helpers'
 
 # Database Type
 # Use postgresql as the database for Active Record
@@ -21,12 +23,13 @@ gem 'autoprefixer-rails'
 # Images and storage
 gem 'refile', require: 'refile/rails'
 gem 'refile-mini_magick'
-gem 'refile-postgres', '~> 1.2.1'
+gem 'refile-postgres', '~> 1.3.0'
 # Amazon Storage
 gem 'refile-s3'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'turbolinks', '~> 5.0.0.beta'
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -47,7 +50,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'better_errors'
   gem 'traceroute'
-  gem 'humanist-errors'
+  gem 'quiet_assets'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

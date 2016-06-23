@@ -44,12 +44,13 @@
 </div>
 <%
 =end %>
+
 <div id="dashboard"class="container-fluid">
 <p id="notice"><%= notice %></p>
 <div class="row">
 	<div class="flex-images">
 		<% @galleries.each do |gallery| %>
-		<div class="item" data-w="150" data-h="150"><%= link_to attachment_image_tag(gallery.images.first, :file), gallery %></div>
+		<div class="item floating-box"><%= link_to attachment_image_tag(gallery.images.first, :file), gallery %></div>
 		<% end %>
 	</div>
 </div>

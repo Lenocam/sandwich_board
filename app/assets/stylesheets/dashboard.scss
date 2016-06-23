@@ -1,8 +1,13 @@
 #dashboard {
 	div.row {
-		height: 200px;
-		div.flex-images {
-			height: 150px;
-		}
+		height: 300px;
+		overflow:auto;
+	}
+	.floating-box {
+		display: inline-block;
+		width  : 250px;
+		height : 75px;
+		margin : 10px;
+		border : 3px solid #73AD21;
 	}
 }
