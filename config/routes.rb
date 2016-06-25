@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'album_galleries/create'
+
 	root  'static_pages#home'
 	get   'signup'  => 'users#new'
 

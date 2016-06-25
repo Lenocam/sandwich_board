@@ -10,4 +10,9 @@
 		margin : 10px;
 		border : 3px solid #73AD21;
 	}
+	img:hover {
+		-moz-box-shadow   : 0 0 10px #340303;
+		-webkit-box-shadow: 0 0 10px #340303;
+		box-shadow        : 0 0 10px #340303;
+	}
 }

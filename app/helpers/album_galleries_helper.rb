@@ -1,0 +1,2 @@
+module AlbumGalleriesHelper
+end

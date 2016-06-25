@@ -11,27 +11,40 @@
 @import "jquery.flex-images";
 @import "header";
 
-
-
 /* Universal Styling */
 li {
 	list-style-type: none;
 }
-
 div.container-fluid.layout {
 	padding-top: 50px;
 }
-
 div.image_container {
 	padding-left: 20px;
 }
-
 /* User-Form */
-
 div.user-edit {
 	padding-left: 20px;
 }
-
 * {
 	background-color: #fff;
+}
+body {
+	margin   : 0;
+	padding  : 0;
+	border   : 0;
+	min-width: 320px;
+	display  : block;
+}
+.pure-g [class *= "pure-u"],
+button,
+html,
+input,
+select,
+textarea {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size  : 1.02em;
+}
+p,
+td {
+	line-height: 1.5;
 }

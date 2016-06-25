@@ -15,9 +15,6 @@ class Gallery < ActiveRecord::Base
     images + albums.map(&:images).flatten.uniq
   end
 
-  def add_album_to_gallery
-  end
-
   validates :title, presence: true
 
   after_create :add_images_to_user
