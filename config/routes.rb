@@ -1,21 +1,20 @@
 Rails.application.routes.draw do
-
   get 'album_galleries/create'
 
-	root  'static_pages#home'
-	get   'signup'  => 'users#new'
+  root  'static_pages#home'
+  get   'signup'  => 'users#new'
 
-	get    'login'  => 'sessions#new'
-	post   'login'  => 'sessions#create'
-	delete 'logout' => 'sessions#destroy'
+  get    'login'  => 'sessions#new'
+  post   'login'  => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
 
+  resources :users, shallow: true do
+    resources :galleries
+    resources :images
+    resources :albums
+    resources :categories
+  end
 
-	resources :users, shallow: true do
-		resources :galleries
-		resources :images
-		resources :albums
-	end
-
-	resources :account_activations, only: [:edit]
-	resources :password_resets,     only: [:new, :create, :edit, :update]
+  resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
 end

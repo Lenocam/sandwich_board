@@ -1,0 +1,14 @@
+<h1>Create a New Category</h1>
+
+<p id="notice"><%=  notice %></p>
+
+<%= form_for([current_user, @category]) do |f| %>
+	<div class="field">
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %>

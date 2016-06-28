@@ -1,14 +1,13 @@
-<div id="gallery-index">
+<p id="notice"><%= notice %></p>
 
-	<p id="notice"><%= notice %></p>
+<h1><%= current_user.name %>'s Galleries</h1>
 
-	<h1><%= current_user.name %>'s Galleries</h1>
-
-	<div class="image_container">
+<div class="row">
+	<div class="flex-images">
 		<% @galleries.each do |gallery| %>
 		<ul class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
 			<li><%=link_to gallery.title, gallery %></li>
-			<li>
+			<li class="item floating-box">
 				<%= link_to attachment_image_tag(gallery.images.first, :file), gallery %>
 			</li>
 			<li><%= link_to 'Show', gallery %></li>
@@ -16,9 +15,8 @@
 			<li><%= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' } %></li>
 		</ul>
 		<% end %>
-	</div class="image_container">
-
-	<br>
-
-	<%= link_to 'New Gallery', new_user_gallery_path(current_user) %>
+	</div>
 </div>
+<br>
+
+<%= link_to 'New Gallery', new_user_gallery_path(current_user) %>

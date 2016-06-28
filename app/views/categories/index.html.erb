@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<h3><%= current_user.name %>'s Categories'</h3>
+	<% if current_user.categories.any? %>
+	<% @categories.each do |cat| %>
+	<ul>
+		<li><%=link_to cat.name, cat %></li>
+	</ul>
+	<% end %>
+<% end %>

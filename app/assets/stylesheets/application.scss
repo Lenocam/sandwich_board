@@ -2,12 +2,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "jasny-bootstrap";
-@import "galleries";
 @import "images";
 @import "home";
 @import "sessions";
 @import "dashboard";
-@import "scaffolds";
 @import "jquery.flex-images";
 @import "header";
 
@@ -28,6 +26,7 @@ div.user-edit {
 * {
 	background-color: #fff;
 }
+
 body {
 	margin   : 0;
 	padding  : 0;

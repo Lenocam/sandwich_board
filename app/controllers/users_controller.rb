@@ -67,9 +67,10 @@ class UsersController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation,
-                                 images_attributes:  [:id, :file_id],
-                                 albums_attributes: [:id, :name],
-                                 galleries_attributes: [:id, :title])
+                                 images_attributes:     [:id, :file_id],
+                                 albums_attributes:     [:id, :name],
+                                 galleries_attributes:  [:id, :title],
+                                 categories_attributes: [:id, :name, :description])
   end
 
   # Use callbacks to share common setup or constraints between actions.

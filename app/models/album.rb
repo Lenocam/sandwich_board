@@ -1,24 +1,27 @@
 class Album < ActiveRecord::Base
-  belongs_to :user
+	belongs_to :user
 
-  has_many   :album_galleries
-  has_many   :galleries, through: :album_galleries # , dependent: :destroy
+	has_many   :album_galleries
+	has_many   :galleries, through: :album_galleries # , dependent: :destroy
 
-  has_many   :album_images, dependent: :destroy
-  has_many   :images, through: :album_images
+	has_many   :album_images, dependent: :destroy
+	has_many   :images, through: :album_images
 
-  accepts_attachments_for       :images, attachment: :file, append: true
-  accepts_nested_attributes_for :images
+	has_many   :album_categories
+	has_many   :categories, through: :album_categories
 
-  validates :name, presence: true
+	accepts_attachments_for       :images, attachment: :file, append: true
+	accepts_nested_attributes_for :images
 
-  after_create :add_images_to_user
+	validates :name, presence: true
 
-  def add_images_to_user
-    images.each do |image|
-      image.update(user: user)
-    end
-  end
+	after_create :add_images_to_user
+
+	def add_images_to_user
+		images.each do |image|
+			image.update(user: user)
+		end
+	end
 end
 # add tags to albums accessable to gallery
 # or find way to add and remove existing albums from gallery
