@@ -47,3 +47,20 @@ p,
 td {
 	line-height: 1.5;
 }
+
+span.badge {
+	background-color: black;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	font-weight: bold;
+}
+/* Category Check boxes */
+label.checkbox-inline.input_checkbox {
+	padding-left: 20px;
+	width: auto !important;
+	font-weight: bold;
+}
+
+div.form-group {
+	margin-left: 20px;
+}

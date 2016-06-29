@@ -5,6 +5,8 @@
 	<% @categories.each do |cat| %>
 	<ul>
 		<li><%=link_to cat.name, cat %></li>
+		<li><%= cat.description %></li>
 	</ul>
 	<% end %>
 <% end %>
+<p><%=  link_to "New Category", new_user_category_path %></p>

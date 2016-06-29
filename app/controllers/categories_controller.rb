@@ -13,23 +13,22 @@ class CategoriesController < ApplicationController
     @category = current_user.categories.build(category_params)
     respond_to do |format|
       if @category.save
-        format.html { redirect_to user_categories_path, notice: 'Gallery was successfully created.' }
+        format.html { redirect_to user_categories_path, notice: 'Category was successfully created.' }
         format.json { render json: @resource }
       else
-        format.html { render :new }
+        format.html { render :new, notice: "Something Happened I don't know what" }
         format.html { render json: @category.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def show
-    # code
   end
 
   private
 
   def set_category
-    @album = Category.find(params[:id])
+    @category = Category.find(params[:id])
   end
 
   def category_params

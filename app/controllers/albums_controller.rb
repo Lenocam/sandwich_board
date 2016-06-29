@@ -58,10 +58,6 @@ class AlbumsController < ApplicationController
     # end
   end
 
-  def selected_albums
-    puts self
-  end
-
   # DELETE /albums/1
   # DELETE /albums/1.json
   def destroy
@@ -81,6 +77,6 @@ class AlbumsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def album_params
-    params.require(:album).permit(:name, selected_albums: [], images_files: [])
+    params.require(:album).permit(:name, images_files: [], category_ids: [])
   end
 end

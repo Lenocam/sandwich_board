@@ -8,9 +8,13 @@
 		<%= link_to attachment_image_tag(image, :file, :limit, 150, 150), image %>
 		<% end %>
 	</div>
+	<br>
 
 	<div class="category">
-
+		<% if @album.categories.any? %>
+			<p>Categories: <%= render @album.categories %>
+			</p>
+		<% end %>
 	</div>
 
 	<%= link_to 'Delete Album and every image in it', @album, method: :delete, data: { confirm: "Are you ready to burn this album and all the images?"} %>

@@ -7,5 +7,7 @@ class Category < ActiveRecord::Base
   validates :name, presence: true, length: { minimum: 3, maximum: 25 }
   validates_uniqueness_of :name
 
+  validates :description, length: { maximum: 50 }
+
   # Test to see if by putting name uniqueness if it keeps two different users from having the same name
 end
