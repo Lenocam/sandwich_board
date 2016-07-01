@@ -1,5 +1,8 @@
+<%
+=begin %>
 class Album < ActiveRecord::Base
 	belongs_to :user
+	validates :user_id, presence: true
 
 	has_many   :album_galleries
 	has_many   :galleries, through: :album_galleries # , dependent: :destroy
@@ -25,3 +28,5 @@ class Album < ActiveRecord::Base
 end
 # add tags to albums accessable to gallery
 # or find way to add and remove existing albums from gallery
+<%
+=end %>

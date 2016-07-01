@@ -14,11 +14,11 @@ class User < ActiveRecord::Base
 
   has_many :galleries, dependent: :destroy
 
-  has_many :albums, dependent: :destroy
+  # has_many :albums, dependent: :destroy
 
   has_many :categories, dependent: :destroy
 
-  accepts_nested_attributes_for :images, :galleries, :albums, :categories, allow_destroy: true
+  accepts_nested_attributes_for :images, :galleries, :categories, allow_destroy: true #:albums
   accepts_attachments_for :images, attachment: :file, append: true
 
   # Returns the hash digest of the given string.

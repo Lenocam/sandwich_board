@@ -13,18 +13,20 @@ class GalleriesController < ApplicationController
   def create
     @gallery = current_user.galleries.build(gallery_params)
     respond_to do |format|
-      if @gallery.save
+      if @gallery.save!
         format.html { redirect_to @gallery, notice: 'Gallery was successfully created.' }
         format.json { render :show, status: :created, location: @gallery }
       else
-        format.html { render :new }
+        format.html { render :new, notice: 'There was a problem' }
         format.json { render json: @gallery.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def show
-    @gallery.all_images
+  end
+
+  def edit
   end
 
   def update
@@ -51,6 +53,6 @@ class GalleriesController < ApplicationController
   end
 
   def gallery_params
-    params.require(:gallery).permit(:title, images_files: [])
+    params.require(:gallery).permit(:title, images_files: [], category_ids: [])
   end
 end

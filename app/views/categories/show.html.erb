@@ -3,18 +3,15 @@
 <h3><%= @category.name %></h3>
 <h6><%= @category.description %></h6>
 
-
-
-<div class="row">
-	<div class="flex-images">
-		<% @category.albums.each do |album| %>
+		<h3>Category Images</h3><br>
+		<% @category.images.each do |image| %>
 		<ul class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
-			<li><%= link_to album.name, album %></li>
-			<li class="item floating-box"><%= link_to attachment_image_tag(album.images.first, :file), album %></li>
-			<li><%= link_to 'Edit', edit_album_path(album) %></li>
-			<li><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+			<li class="item floating-box"><%= link_to attachment_image_tag(image, :file), image %></li>
+			<li><%= link_to 'Edit', edit_image_path(image) %></li>
+			<li><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></li>
 		</ul>
+
 		<% end %>
+
 	</div>
-	<br>
 </div>

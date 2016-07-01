@@ -14,8 +14,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @galleries = current_user.galleries.paginate(page: params[:page])
-    @albums = current_user.albums.paginate(page: params[:page])
+    # @albums = current_user.albums.paginate(page: params[:page])
     @images = current_user.images.paginate(page: params[:page])
+    @categories = current_user.categories.paginate(page: params[:page])
   end
 
   # GET /users/new
@@ -68,9 +69,8 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation,
                                  images_attributes:     [:id, :file_id],
-                                 albums_attributes:     [:id, :name],
                                  galleries_attributes:  [:id, :title],
-                                 categories_attributes: [:id, :name, :description])
+                                 categories_attributes: [:id, :name, :description]) # albums_attributes:     [:id, :name],
   end
 
   # Use callbacks to share common setup or constraints between actions.

@@ -1,3 +1,5 @@
+<%
+=begin %>
 class AlbumGalleriesController < ApplicationController
 	before_action :set_gallery, only: [:create]
 	before_action :set_album_galleries, only: [:show, :edit, :update, :destroy]
@@ -19,3 +21,5 @@ class AlbumGalleriesController < ApplicationController
 		end
 	end
 end
+<%
+=end %>
