@@ -3,10 +3,6 @@
 		<%= f.label      	     :title %><br>
 		<%= f.text_field 	     :title %>
 	</div>
-	<div class="field">
-		<%= f.label            :images_files %><br>
-		<%= f.attachment_field :images_files, multiple: true, presigned: true, direct: true %>
-	</div>
 	<div class="form-group">
 		<div class="row">
 			<%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>

@@ -14,9 +14,9 @@ class Gallery < ActiveRecord::Base
   accepts_attachments_for       :images, attachment: :file, append: true
   accepts_nested_attributes_for :images
 
-  # def all_images
-  # images + albums.map(&:images).flatten.uniq
-  # end
+  def categories_images
+    categories.flat_map(&:images).uniq
+  end
 
   validates :title, presence: true
   after_create :add_images_to_user

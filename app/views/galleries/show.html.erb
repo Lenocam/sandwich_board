@@ -1,29 +1,14 @@
-<div id="gallery-show">
+<div class="row">
+	<div class="flex-images">
+		<% @gallery_images.each do |image| %>
+		<div class="item floating-box"><%= link_to attachment_image_tag(image, :file), image %></div>
+		<% end %>
+	</div>
+</div><br>
 
-	<p id="notice"><%= notice %></p>
-	<h3>
-		<strong>Title:
-			<%= @gallery.title %></strong>
-
-	</h3>
-	<div>
-		<h2>
-			<strong>Gallery Images:</strong>
-		</h2>
-
-		<div class="row">
-			<div class="flex-images">
-				<% @gallery.images.each do |image| %>
-				<div class="item floating-box"><%= link_to attachment_image_tag(image, :file), image %></div>
-				<% end %>
-			</div>
-		</div>
-	</div><br>
-	<%= link_to 'Delete the whole Gallery', @gallery, method: :delete, data: { confirm: 'Are you sure?'} %>
-	|
-	<%= link_to 'Edit', edit_gallery_url %>
-	|
-	<%= link_to 'Dashboard', user_path(current_user) %>
-	|
-	<%= link_to 'Back', :back %>
+<div class="category">
+	<% if @gallery.categories.any? %>
+		<p>Categories: <%= render @gallery.categories %>
+		</p>
+	<% end %>
 </div>

@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @galleries = current_user.galleries.paginate(page: params[:page])
-    # @albums = current_user.albums.paginate(page: params[:page])
     @images = current_user.images.paginate(page: params[:page])
     @categories = current_user.categories.paginate(page: params[:page])
   end
