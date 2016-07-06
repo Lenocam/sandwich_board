@@ -7,9 +7,6 @@ class Image < ActiveRecord::Base
   has_many   :categories, through: :category_images
   has_many   :category_images
 
-  # has_many   :album_images, dependent: :destroy
-  # has_many   :albums, through: :album_images
-
   attachment   :file, type: :image
   validates    :file, presence: true
 

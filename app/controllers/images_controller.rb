@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+  before_action :logged_in_user
   before_action :set_image, only: [:show, :edit, :update, :destroy]
 
   # GET /images
@@ -14,7 +15,7 @@ class ImagesController < ApplicationController
 
   # GET /images/new
   def new
-    @image = current_user.images.build
+    @image = Image.new
   end
 
   # GET /images/1/edit
@@ -24,10 +25,10 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
+    # @image = Item.create(image_params)
     @image = current_user.images.build(image_params)
-
     respond_to do |format|
-      if @image.save!
+      if @image.save
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
       else

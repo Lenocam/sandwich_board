@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h3><%= @category.name %></h3>
-<h6><%= @category.description %></h6>
+<h4><%= @category.description %></h4>
+<%= link_to 'Edit', edit_category_path(@category) %>
 
 <h3>Galleries with Category</h3><br>
 <% @category.galleries.each do |g| %>
@@ -20,7 +21,4 @@
 		</ul>
 		<% end %>
 	</div>
-</div>
-
-</div>
 </div>

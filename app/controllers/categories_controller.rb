@@ -10,15 +10,29 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = current_user.categories.build(category_params)
+    @category = current_user.categories.create(category_params)
     respond_to do |format|
       if @category.save
-        format.html { redirect_to user_categories_path, notice: 'Category was successfully created.' }
+        format.html { redirect_to @category, notice: 'Category was successfully created.' }
         format.json { render json: @resource }
       else
-        format.html { render :new, notice: "Something Happened I don't know what" }
+        flash[:notice] = "The Category didn't save."
+        format.html { render :new }
+
         format.html { render json: @category.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @category.update(category_params)
+      flash[:success] = 'You updated this category'
+      redirect_to category_path(@category)
+    else
+      render 'edit'
     end
   end
 

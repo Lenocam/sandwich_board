@@ -1,4 +1,4 @@
-<%= form_for([current_user, @gallery]) do |f| %>
+<%= form_for shallow_args(current_user, @gallery) do |f| %>
 	<div class="field">
 		<%= f.label      	     :title %><br>
 		<%= f.text_field 	     :title %>
@@ -14,3 +14,5 @@
 		<%= f.submit %>
 	</div>
 <% end %>
+
+<%= link_to 'Dashboard', user_path(current_user) %>

@@ -1,0 +1,20 @@
+<h1>Create a New Category</h1>
+
+<p id="notice"><%=  notice %></p>
+
+<%= form_for shallow_args(current_user, @category) do |f| %>
+	<div class="field">
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+
+	<div class="field">
+		<%= f.label :description %>
+		<%= f.text_field :description %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %><br>
+<%= link_to 'Dashboard', user_path(current_user) %>

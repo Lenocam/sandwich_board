@@ -1,12 +1,10 @@
 class Gallery < ActiveRecord::Base
   belongs_to :user
   validates  :user_id, presence: true
+  validates  :title, presence: true
 
   has_many   :gallery_images, dependent: :destroy
   has_many   :images, through: :gallery_images
-
-  # has_many   :album_galleries, dependent: :destroy
-  # has_many   :albums, through: :album_galleries
 
   has_many   :category_galleries
   has_many   :categories, through: :category_galleries

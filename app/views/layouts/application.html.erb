@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>SandwichBoard</title>
+  <title>Sandwich Board</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -10,16 +10,15 @@
         <%= render 'layouts/shim' %>
 </head>
 
-<body id="<%= controller_name %> <%= action_name %>">
+<body id="<%= controller_name %>" class="<%= action_name %>">
   <%= render 'layouts/header' %>
     <div class="container-fluid layout">
       <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
           <% end %>
             <%= yield %>
-              <%= debug(params) if Rails.env.development? %>
+              <%# debug(params) if Rails.env.development? %>
     </div>
-</body>
 </body>
 
 </html>
