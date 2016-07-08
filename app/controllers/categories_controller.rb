@@ -1,42 +1,33 @@
 class CategoriesController < ApplicationController
   before_action :logged_in_user
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  def index
-    @categories = current_user.categories.all
-  end
-
+  before_action :all_categories, only: [:index, :create, :update, :destroy]
   def new
     @category = current_user.categories.build
   end
 
   def create
     @category = current_user.categories.create(category_params)
-    respond_to do |format|
-      if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
-        format.json { render json: @resource }
-      else
-        flash[:notice] = "The Category didn't save."
-        format.html { render :new }
-
-        format.html { render json: @category.errors, status: :unprocessable_entity }
+    if @category.save!
+      respond_to do |format|
+        format.html
+        format.js
       end
-    end
-  end
 
-  def edit
+    end
   end
 
   def update
     if @category.update(category_params)
-      flash[:success] = 'You updated this category'
-      redirect_to category_path(@category)
-    else
-      render 'edit'
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
   end
 
-  def show
+  def destroy
+    @category.destroy
   end
 
   private
@@ -47,5 +38,9 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name, :description, gallery_ids: [], images_files: [])
+  end
+
+  def all_categories
+    @categories = current_user.categories.all
   end
 end

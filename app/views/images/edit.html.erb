@@ -1,5 +1,7 @@
 <h1>Editing Image</h1>
 
+<%= image_tag attachment_url(@image, :file, :limit, 300, 300, format: "jpg") %><br>
+
 <%= render 'form' %>
 
 <%= link_to 'Show', @image %> |

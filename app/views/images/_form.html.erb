@@ -1,20 +1,16 @@
-<%= form_for shallow_args(current_user, @image) do |f| %>
-<div class="field">
+<div class="form-group">
+	<%= simple_form_for shallow_args(current_user, @image) do |f| %>
 	<%= f.label            :file %><br>
 	<%= f.attachment_field :file, direct: true %>
-</div>
-<div class="form-group">
+
 	<div class="row">
 		<%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
 		<% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text}%>
 		<% end %>
 	</div>
-</div>
-<div class="actions">
-	<%= f.submit %>
-</div>
-<% end %>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
 
-
-<%# Delete %>
-<%# Need to remove "remove_file" not needed here, just delete %>
+	<% end %>
+</div>

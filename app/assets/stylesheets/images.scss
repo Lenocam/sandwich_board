@@ -42,11 +42,16 @@ body#images index {
 		img {
 			max-width : 0;
 			max-height: 0;
-			width     : 100px;
+			width     : auto;
 			height    : 100px;
 			min-width : 100px;
 			min-height: 100px;
 			position  : relative;
 		}
+	}
+}
+body#images.new {
+	input#image_file {
+		margin-bottom: 10px;
 	}
 }

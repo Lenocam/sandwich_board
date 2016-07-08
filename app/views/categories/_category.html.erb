@@ -1,1 +1,13 @@
-<span class="badge"><%= link_to category.name, category_path(category)  %> &nbsp;</span>
+<li class="list-group-item list-group-item-info">
+	<%= link_to category.name, category_path(category)  %>
+	<span class="delete">
+		<%= link_to category, remote: true, method: :delete do %>
+	<button class="btn btn-danger btn-xs">Delete!</button>
+	<% end %>
+	</span>
+	<span class="edit">
+		<%= link_to edit_category_path(category), remote: true do %>
+		<button class="btn btn-primary btn-xs">Edit</button>
+		<% end %>
+	</span>
+</li>

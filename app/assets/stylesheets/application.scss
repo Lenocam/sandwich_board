@@ -10,6 +10,16 @@
 @import "categories";
 @import "header";
 
+$btn-default-bg: #9B111E;
+$btn-default-color: white;
+$btn-default-border: black;
+
+.content {
+	padding-bottom: 50px;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+
 /* Universal Styling */
 li {
 	list-style-type: none;
@@ -25,28 +35,7 @@ div.user-edit {
 	padding-left: 20px;
 }
 * {
-	background-color: #fff;
-}
-
-body {
-	margin   : 0;
-	padding  : 0;
-	border   : 0;
-	min-width: 320px;
-	display  : block;
-}
-.pure-g [class *= "pure-u"],
-button,
-html,
-input,
-select,
-textarea {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size  : 1.02em;
-}
-p,
-td {
-	line-height: 1.5;
+	background-color: white;
 }
 
 span.badge {
@@ -57,7 +46,7 @@ span.badge {
 }
 /* Category Check boxes */
 label.checkbox-inline.input_checkbox {
-	padding-left: 20px;
+	padding-left: 30px;
 	width: auto !important;
 	font-weight: bold;
 }

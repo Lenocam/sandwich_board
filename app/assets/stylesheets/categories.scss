@@ -1,18 +1,31 @@
-body#categories {
-	div.row {
-		height: 300px;
-		overflow:auto;
+body#categories.index {
+	margin-bottom: 60px;
+	position: relative;
+	min-height: 100%;
+
+	#categories {
+		padding-left: 15px;
 	}
-	.floating-box {
-		display: inline-block;
-		width  : 250px;
-		height : 75px;
-		margin : 10px;
-		border : 3px solid #73AD21;
+	.edit {
+		float: right;
+		padding-right: 10px;
 	}
-	img:hover {
-		-moz-box-shadow   : 0 0 10px #340303;
-		-webkit-box-shadow: 0 0 10px #340303;
-		box-shadow        : 0 0 10px #340303;
+	.delete {
+		float: right;
+		padding-right:10px;
+	}
+	#category-form {
+		padding-bottom:15px;
+	}
+	li.list-group-item.list-group-item-info {
+		margin-bottom: 5px;
+		/*color:
+		background-color:*/
+	}
+	button.btn.btn-default {
+		margin-bottom: 10px;
+	}
+	span {
+		background-color: transparent;
 	}
 }

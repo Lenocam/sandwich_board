@@ -8,7 +8,7 @@
 		<% @images.each do |image| %>
 		<ul class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
 			<li>
-				<%= image_tag attachment_url(image, :file, :fill, 100, 100, format: "jpg") %>
+				<%= image_tag attachment_url(image, :file, :fill, 150, 150, format: "jpg") %>
 			</li>
 			<li><%= link_to 'Show', image %></li>
 			<li><%= link_to 'Edit', edit_image_path(image) %></li>
