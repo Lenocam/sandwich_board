@@ -1,5 +1,6 @@
 <div class="form-group">
 	<%= simple_form_for shallow_args(current_user, @image) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
 	<%= f.label            :file %><br>
 	<%= f.attachment_field :file, direct: true %>
 
@@ -8,9 +9,34 @@
 		<% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text}%>
 		<% end %>
 	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="form-group">
+					<%= label_tag :start_at, 'StartTime' %>
+					<div class="input-group date" id="datetimepicker">
+						<%= f.text_field :start_at, class: 'form-control' %>
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="form-group">
+					<%= label_tag :end_at, 'End of Image run' %>
+					<div class="input-group date" id="datetimepicker1">
+						<%= f.text_field :end_at, class: 'form-control' %>
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="actions">
 		<%= f.submit %>
 	</div>
-
 	<% end %>
 </div>

@@ -1,14 +1,19 @@
 <div class="row">
 	<div class="flex-images">
 		<% @gallery_images.each do |image| %>
-		<div class="item floating-box"><%= link_to attachment_image_tag(image, :file), image %></div>
+		<ul class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+			<li class="item floating-box">
+				<%= link_to attachment_image_tag(image, :file), image %>
+			</li>
+		</ul>
 		<% end %>
 	</div>
 </div><br>
 
 <div class="category">
 	<% if @gallery.categories.any? %>
-		<p>Categories: <%= render @gallery.categories %>
-		</p>
+	<p>Categories:
+		<%= render @gallery.categories %>
+	</p>
 	<% end %>
 </div>

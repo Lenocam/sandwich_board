@@ -13,9 +13,13 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require moment
 //= require refile
 //= require bootstrap-sprockets
 //= require jasny-bootstrap
+//= require bootstrap-datetimepicker
+//= require pickers
 //= require jquery.flex-images.min
+
 //= require turbolinks
 //= require_tree .
