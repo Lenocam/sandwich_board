@@ -2,6 +2,7 @@ class ImagesController < ApplicationController
 	before_action :logged_in_user
 	before_action :set_image, only: [:show, :edit, :update, :destroy]
 
+
 	# GET /images
 	# GET /images.json
 	def index
@@ -72,4 +73,8 @@ class ImagesController < ApplicationController
 	def image_params
 		params.require(:image).permit(:file, :start_at, :end_at, category_ids: [])
 	end
+
+
+
+
 end
