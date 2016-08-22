@@ -10,10 +10,13 @@ gem 'pg', '~> 0.15'
 gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
+gem 'responders'
 
 gem 'momentjs-rails', '~> 2.9', github: 'derekprior/momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'holder_rails'
+gem 'remotipart', '~> 1.2'
 
 gem 'coffee-rails', '~> 4.1.0'
 gem 'autoprefixer-rails'
@@ -33,17 +36,17 @@ gem 'faker'
 gem 'will_paginate'
 
 group :development, :test do
-	gem 'byebug'
+		gem 'byebug'
 end
 
 group :development do
-	gem 'better_errors'
-	gem 'traceroute'
-	gem 'quiet_assets'
-	gem 'binding_of_caller'
-	gem 'spring'
+		gem 'better_errors'
+		gem 'traceroute'
+		gem 'quiet_assets'
+		gem 'binding_of_caller'
+		gem 'spring'
 end
 group :production do
-	gem 'rails_12factor'
-	gem 'puma'
+		gem 'rails_12factor'
+		gem 'puma'
 end

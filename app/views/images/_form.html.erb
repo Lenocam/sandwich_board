@@ -1,35 +1,51 @@
 <div class="form-group">
+
 	<%= simple_form_for shallow_args(current_user, @image) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 	<%= f.label            :file %><br>
 	<%= f.attachment_field :file, direct: true %>
 
+	<%# Assign Categories to Images %>
 	<div class="row">
 		<%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
 		<% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text}%>
 		<% end %>
 	</div>
+
+	<%# Set Dates %>
+
 	<div class="container">
+		<%# Assign start_at date to image %>
+
 		<div class="row">
 			<div class="col-sm-4">
 				<div class="form-group">
-					<%= label_tag :start_at, 'Start Date' %>
-					<div class="input-group date" id="datetimepicker">
-						<%= f.text_field :start_at, class: 'form-control' %>
-						<span class="input-group-addon">
-							<span class="glyphicon glyphicon-calendar"></span>
-						</span>
+
+					<div class="checkbox-inline">
+						<input type="checkbox" id="awakeStartSelect"/>
+						<%= label_tag :start_at, 'Choose Start Date' %>
+						<div class="input-group date" id="datetimepicker">
+							<%= f.text_field :start_at, class: 'form-control' %>
+							<span class="input-group-addon">
+								<span class="glyphicon glyphicon-calendar"></span>
+							</span>
+						</div>
 					</div>
 				</div>
 			</div>
+
+			<%# Assign end_at date to image %>
 			<div class="col-sm-4">
 				<div class="form-group">
-					<%= label_tag :end_at, 'End Date' %>
-					<div class="input-group date" id="datetimepicker1">
-						<%= f.text_field :end_at, class: 'form-control' %>
-						<span class="input-group-addon">
-							<span class="glyphicon glyphicon-calendar"></span>
-						</span>
+					<div class="checkbox-inline">
+						<input type="checkbox" id="awakeEndSelect"/>
+						<%= label_tag :end_at, 'Choose End Date' %>
+						<div class="input-group date" id="datetimepicker1">
+							<%= f.text_field :end_at, class: 'form-control' %>
+							<span class="input-group-addon">
+								<span class="glyphicon glyphicon-calendar"></span>
+							</span>
+						</div>
 					</div>
 				</div>
 			</div>

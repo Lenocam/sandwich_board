@@ -69,7 +69,7 @@ class UsersController < ApplicationController
 		params.require(:user).permit(:name, :email, :time_zone, :password, :password_confirmation,
 																 images_attributes:     [:id, :file_id],
 																 galleries_attributes:  [:id, :title],
-																 categories_attributes: [:id, :name, :description]) # albums_attributes:     [:id, :name],
+																 categories_attributes: [:id, :name, :description])
 	end
 
 	# Use callbacks to share common setup or constraints between actions.
