@@ -9,7 +9,11 @@ $(document).on "turbolinks:load", ->
 				});
 
 		#Disables Start Date until Checked
-		$('#datetimepicker').data("DateTimePicker").disable();
+		if $('#datetimepicker').data("DateTimePicker").date() != null
+				$('#datetimepicker').data("DateTimePicker").enable();
+				$('input#awakeStartSelect').prop("checked", true)
+		else
+				$('#datetimepicker').data("DateTimePicker").disable();
 
 		$('input#awakeStartSelect').change((e) ->
 				if this.checked
@@ -19,7 +23,11 @@ $(document).on "turbolinks:load", ->
 		)
 
 		#Disables End Date until Checked
-		$('#datetimepicker1').data("DateTimePicker").disable();
+		if $('#datetimepicker1').data("DateTimePicker").date() != null
+				$('#datetimepicker1').data("DateTimePicker").enable();
+				$('input#awakeEndSelect').prop("checked", true);
+		else
+				$('#datetimepicker1').data("DateTimePicker").disable();
 
 		$('input#awakeEndSelect').change((e) ->
 				if this.checked

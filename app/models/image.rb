@@ -13,19 +13,10 @@ class Image < ActiveRecord::Base
 	before_save :set_dimensions, if: :file_id_changed?
 	validate :time_in_future
 	validate :end_after_start
-	before_save :end_at_plus_20_years, if: :end_at_present?
 
 	require 'date'
 
 	private
-
-	def end_at_plus_20_years
-		self.end_at = DateTime.current + 20.years
-	end
-
-	def end_at_present?
-		:end_at_plus_20_years if start_at? && !end_at?
-	end
 
 	def time_in_future
 		if start_at? do
