@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require chosen-jquery
 //= require jquery.remotipart
 //= require moment
 //= require refile
@@ -22,6 +23,5 @@
 //= require pickers
 //= require jquery.flex-images.min
 //= require holder
-
 //= require turbolinks
 //= require_tree .

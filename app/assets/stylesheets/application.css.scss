@@ -1,15 +1,21 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "compass";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-datetimepicker";
 @import "jasny-bootstrap";
+@import "jquery.flex-images";
+@import "jquery-ui";
+@import 'jquery-ui.structure';
+@import 'jquery-ui.theme';
+@import 'chosen-compass';
 @import "images";
 @import "home";
 @import "sessions";
 @import "dashboard";
-@import "jquery.flex-images";
 @import "categories";
 @import "header";
+@import 'gallery';
 
 $btn-default-bg: #9B111E;
 $btn-default-color: white;
@@ -38,13 +44,14 @@ div.user-edit {
 * {
 	background-color: white;
 }
-
+/*
 span.badge {
 	background-color: black;
 	text-transform: uppercase;
 	letter-spacing: -1px;
 	font-weight: bold;
 }
+*/
 /* Category Check boxes */
 label.checkbox-inline.input_checkbox {
 	padding-left: 30px;

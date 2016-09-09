@@ -6,14 +6,16 @@
 	</div>
 	<div class="form-group">
 		<div class="row">
-			<%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
-				<% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text}%>
-			<% end %>
+			<%= f.label :category_ids, "Categories" %><br>
+			<%= f.collection_select :category_ids, current_user.categories.all, :id, :name, {}, { multiple: true }  %>
 		</div>
+
 	</div>
 	<div class="actions">
 		<%= f.submit %>
 	</div>
 <% end %>
-
-<%= link_to 'Dashboard', user_path(current_user) %>
+<ul>
+	<li><%= link_to 'Dashboard', user_path(current_user) %></li>
+	<li><%= link_to 'Back', :back %></li>
+</ul>

@@ -1,7 +1,7 @@
 <li class="list-group-item list-group-item-info">
 	<%= link_to category.name, category_path(category)  %>
 	<span class="delete">
-		<%= link_to category, remote: true, method: :delete do %>
+		<%= link_to category, remote: true, method: :delete, data: { confirm: 'Are you sure?' } do %>
 	<button class="btn btn-danger btn-xs">Delete!</button>
 	<% end %>
 	</span>

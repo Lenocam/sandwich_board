@@ -6,7 +6,7 @@ class Gallery < ActiveRecord::Base
 	has_many   :gallery_images, dependent: :destroy
 	has_many   :images, through: :gallery_images
 
-	has_many   :category_galleries
+	has_many   :category_galleries, dependent: :destroy
 	has_many   :categories, through: :category_galleries
 
 	accepts_attachments_for       :images, attachment: :file, append: true

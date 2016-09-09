@@ -16,5 +16,7 @@
 	</div>
 </div>
 <br>
-
-<%= link_to 'New Gallery', new_user_gallery_path(current_user) %>
+<ul>
+	<li><%= link_to 'New Gallery', new_user_gallery_path(current_user) %></li>
+	<li><%= link_to "All Images", user_images_url(current_user) %></li>
+</ul>

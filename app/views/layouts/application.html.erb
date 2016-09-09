@@ -2,25 +2,26 @@
 <html>
 
 <head>
-  <title>Sandwich Board</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-      <%= csrf_meta_tags %>
-        <%= render 'layouts/shim' %>
+	<title>Sandwich Board</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+				<%= render 'layouts/shim' %>
 </head>
 
 <body id="<%= controller_name %>" class="<%= action_name %>">
-  <%= render 'layouts/header' %>
-    <div class="container-fluid layout">
-      <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-          <% end %>
-            <div class="row content">
-              <%= yield %>
-            </div>
-            <%# debug(params) if Rails.env.development? %>
-    </div>
+	<%= render 'layouts/header' %>
+		<div class="container-fluid layout">
+			<% flash.each do |message_type, message| %>
+				<%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+					<% end %>
+						<div class="row content">
+							<%= yield %>
+						</div>
+						<%# debug(params) if Rails.env.development? %>
+						<%= link_to "back", :back %>
+		</div>
 </body>
 
 </html>
