@@ -4,4 +4,5 @@ $(document).on "turbolinks:load", ->
 
 	$('#gallery_category_ids').chosen({
 		no_results_text: "No reult found. Press enter to add..."
+		search_contains: true,
 		});
