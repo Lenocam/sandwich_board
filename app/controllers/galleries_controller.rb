@@ -12,7 +12,8 @@ class GalleriesController < ApplicationController
   end
 
   def create
-    @gallery = current_user.galleries.create(gallery_params)
+    @gallery = current_user.galleries.build(gallery_params)
+
     respond_to do |format|
       if @gallery.save
         format.html { redirect_to @gallery, notice: 'Gallery was successfully created.' }
@@ -46,7 +47,7 @@ class GalleriesController < ApplicationController
   def destroy
     @gallery.destroy
     respond_to do |format|
-      format.html { redirect_to user_url, notice: 'Gallery was successfully destroyed.' }
+      format.html { redirect_to user_galleries_url(current_user), notice: 'Gallery was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -58,6 +59,22 @@ class GalleriesController < ApplicationController
   end
 
   def gallery_params
-    params.require(:gallery).permit(:title, category_ids: [])
+    allowed = params.require(:gallery).permit(:title, category_ids: [])
+    allowed[:category_ids] = clean_up_categories(allowed[:category_ids])
+    allowed
+  end
+
+  def clean_up_categories(categories)
+    valid_ids = []
+    categories.each do |cat|
+      next if cat.blank?
+      if Category.where(id: cat).any?
+        valid_ids << cat
+      else
+        new_cat = current_user.categories.create(name: cat)
+        valid_ids << new_cat.id # since you are passing strings keep consistent
+      end
+    end
+    valid_ids
   end
 end

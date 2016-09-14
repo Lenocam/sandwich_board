@@ -26,9 +26,18 @@
 		<% end %>
 	</div>
 </div><br>
+<ul>
+	<% @gallery.categories.each do |c| %>
+	<li><%= c.id %></li>
+	<li><%= c.name %></li>
+	<% end %>
+
+</ul>
+
 </ul>
 <ul>
 	<li><%= link_to  current_user.name.capitalize + "'s Galleries", user_galleries_url(current_user) %></li>
+	<li><%= link_to 'Destroy', @gallery, method: :delete, data: { confirm: 'Are you sure?'} %></li>
 	<li><%= link_to "Edit Gallery", edit_gallery_path %></li>
 	<li><%= link_to "Back", :back %></li>
 </ul>
