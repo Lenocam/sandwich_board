@@ -1,7 +1,7 @@
 $(document).on "turbolinks:load", ->
 		#StartTime Date Picker
 		$('#datetimepicker').datetimepicker({
-				"format": "YYYY/MM/DD H:mm"
+				"format": "MM/DD/YYYY hh:mm"
 				});
 		#EndtTime Date Picker
 		$('#datetimepicker1').datetimepicker({

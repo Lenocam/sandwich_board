@@ -4,6 +4,7 @@ class ImagesController < ApplicationController
   respond_to :js
   respond_to :html
   respond_to :json
+  helper :images
 
   # GET /images
   # GET /images.json
@@ -74,9 +75,10 @@ class ImagesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def image_params
     allowed = params.require(:image).permit(:file, :start_at, :end_at, category_ids: [])
+
+    # Call to Create New Categories on update/new action of images
     allowed[:category_ids] = clean_up_categories(allowed[:category_ids])
     allowed
-    # params.require(:image).permit(:file, :start_at, :end_at, category_ids: [])
   end
 
   def clean_up_categories(categories)
