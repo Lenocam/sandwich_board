@@ -72,7 +72,7 @@ class GalleriesController < ApplicationController
         valid_ids << cat
       else
         new_cat = current_user.categories.create(name: cat)
-        valid_ids << new_cat.id # since you are passing strings keep consistent
+        valid_ids << new_cat.id
       end
     end
     valid_ids

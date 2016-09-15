@@ -38,4 +38,7 @@ $(document).on "turbolinks:load", ->
 						$('#datetimepicker1').data("DateTimePicker").disable();
 		)
 
-		$('#image_category_ids').chosen();
+		$('#image_category_ids').chosen({
+			no_results_text: "No result found. Press enter to add..."
+			search_contains: true
+			});

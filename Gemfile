@@ -42,7 +42,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'better_errors'
   gem 'traceroute'
   gem 'quiet_assets'
   gem 'binding_of_caller'
