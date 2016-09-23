@@ -5,6 +5,8 @@ class ImagesController < ApplicationController
   respond_to :html
   respond_to :json
   helper :images
+  require "date"
+  require "pry"
 
   # GET /images
   # GET /images.json
@@ -30,6 +32,8 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = current_user.images.build(image_params)
+    binding.pry
+    @image.start_at = DateTime.strptime(params[:image][:start_at], "%m-%d-%Y %I:%M %p")
     respond_to do |format|
       if @image.save!
         format.html { redirect_to @image }

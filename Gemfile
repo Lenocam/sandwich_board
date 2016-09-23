@@ -46,6 +46,8 @@ group :development do
   gem 'quiet_assets'
   gem 'binding_of_caller'
   gem 'spring'
+  gem 'pry-rails'
+  gem 'pry'
 end
 group :production do
   gem 'rails_12factor'

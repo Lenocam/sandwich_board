@@ -2,6 +2,7 @@
 	<%= image_tag attachment_url(@image, :file, :limit, 300, 300, format: "jpg") %>
 	<p>Start At: <%= @image.start_at %></p>
 	<p>End At:   <%= @image.end_at %></p>
+	<p><%=  %></p>
 	<br>
 	<%= link_to 'Edit', edit_image_path(@image) %>
 	|
