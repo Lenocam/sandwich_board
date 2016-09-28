@@ -32,8 +32,7 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = current_user.images.build(image_params)
-    binding.pry
-    @image.start_at = DateTime.strptime(params[:image][:start_at], "%m-%d-%Y %I:%M %p")
+    #@image.start_at = DateTime.strptime(params[:image][:start_at], "%m-%d-%Y %I:%M %p")
     respond_to do |format|
       if @image.save!
         format.html { redirect_to @image }
@@ -48,7 +47,9 @@ class ImagesController < ApplicationController
   # PATCH/PUT /images/1
   # PATCH/PUT /images/1.json
   def update
+
     respond_to do |format|
+
       if @image.update(image_params)
         format.html { redirect_to @image, notice: 'Image was successfully updated.' }
         format.json { render :show, status: :ok, location: @image }

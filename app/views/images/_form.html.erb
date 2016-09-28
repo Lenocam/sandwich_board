@@ -25,7 +25,7 @@
 						<input type="checkbox" id="awakeStartSelect"/>
 						<%= label_tag :start_at, 'Choose Start Date' %>
 						<div class="input-group date" id="datetimepicker">
-							<%= f.text_field :start_at, class: 'form-control' %>
+							<%= f.text_field :start_at, class: 'form-control', value: @image.start_at? ? @image.start_at.strftime("%m/%d/%Y %I:%M %p") : nil %>
 							<span class="input-group-addon">
 								<span class="glyphicon glyphicon-calendar"></span>
 							</span>
@@ -41,7 +41,7 @@
 						<input type="checkbox" id="awakeEndSelect"/>
 						<%= label_tag :end_at, 'Choose End Date' %>
 						<div class="input-group date" id="datetimepicker1">
-							<%= f.text_field :end_at, class: 'form-control' %>
+							<%= f.text_field :end_at, class: 'form-control', value: @image.end_at? ? @image.end_at.strftime("%m/%d/%Y %I:%M %p") : nil %>
 							<span class="input-group-addon">
 								<span class="glyphicon glyphicon-calendar"></span>
 							</span>

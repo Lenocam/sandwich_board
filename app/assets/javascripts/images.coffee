@@ -1,17 +1,11 @@
 $(document).on "turbolinks:load", ->
 
 	#StartTime Date Picker
-	$('#datetimepicker').datetimepicker({
-		#"format": "YYYY/MM/DD H:mm"
-		"format": "MM-DD-YYYY hh:mm A"
-		});
-
-
+	$('#datetimepicker').datetimepicker().data("DateTimePicker").format('ddd, MMM D YYYY, h:mm A')
 
 	#EndtTime Date Picker
-	$('#datetimepicker1').datetimepicker({
-			"format": "YYYY/MM/DD H:mm"
-			});
+	$('#datetimepicker1').datetimepicker().data("DateTimePicker").format('ddd, MMM D YYYY, h:mm A')
+
 
 	#Disables Start Date until Checked
 	if $('#datetimepicker').data("DateTimePicker")

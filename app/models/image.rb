@@ -12,16 +12,13 @@ class Image < ActiveRecord::Base
   validates   :file, presence: true
 
   before_save :set_dimensions, if: :file_id_changed?
-  #before_save :check_it
   validate :time_in_future
   validate :end_after_start
-
-
-
   private
-  def check_it
-    self.start_at = DateTime.strptime(self.start_at.to_s, "%m/%d/%Y %I:%M %p")
-  end
+
+  #def parse_time(time_as_string)
+  #  self.start_at = Time.zone.parse(time_as_string)
+  #end
 
   def time_in_future
     if start_at? do
