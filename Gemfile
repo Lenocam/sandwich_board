@@ -30,7 +30,8 @@ gem 'refile-postgres', '~> 1.3.0'
 gem 'refile-s3'
 
 gem 'turbolinks', '~> 5.0.0.beta'
-gem 'jbuilder', '~> 2.0'
+#gem 'jbuilder', '~> 2.0'
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bcrypt', '~> 3.1.7'

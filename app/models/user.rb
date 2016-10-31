@@ -1,8 +1,8 @@
-
 class User < ActiveRecord::Base
 	attr_accessor :remember_token, :activation_token, :reset_token
 	before_save :downcase_email
 	before_create :create_activation_digest
+	before_create :generate_authentication_token
 	validates :name, presence: true, length: { maximum: 50 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, length: { maximum: 255 },
@@ -90,5 +90,13 @@ class User < ActiveRecord::Base
 	def create_activation_digest
 		self.activation_token = User.new_token
 		self.activation_digest = User.digest(activation_token)
+	end
+
+	#API
+	def generate_authentication_token
+		loop do
+			self.authentication_token = SecureRandom.base64(64)
+			break unless User.find_by(authentication_token: authentication_token)
+		end
 	end
 end
