@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.0'
+ruby '2.3.1'
 gem 'rails', '4.2.5.1'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'rails-jasny-bootstrap-extension'
@@ -12,6 +12,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'compass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'responders'
+gem "pundit"
 
 gem 'momentjs-rails', '~> 2.9', github: 'derekprior/momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
@@ -30,7 +31,6 @@ gem 'refile-postgres', '~> 1.3.0'
 gem 'refile-s3'
 
 gem 'turbolinks', '~> 5.0.0.beta'
-#gem 'jbuilder', '~> 2.0'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
