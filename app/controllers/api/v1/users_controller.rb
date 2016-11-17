@@ -3,7 +3,7 @@ module Api
     class UsersController < BaseController
       before_action :set_user, only: [:show, :update, :destroy]
       before_action :authenticated_user!
-      before_action :correct_api_user
+      before_action :correct_api_user, except: :index
       #after_action :verify_authorized
 
       def show
@@ -15,7 +15,7 @@ module Api
       def index
         authorize @current_user
         @users = User.all
-        render json: @users
+        render json: @users, each_serializer: UserSerializer
       end
 
       private

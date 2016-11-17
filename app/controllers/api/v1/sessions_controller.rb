@@ -1,11 +1,17 @@
 module Api
   module V1
     class SessionsController < Api::V1::BaseController
+      def new
+
+      end
       def create
-        user = User.find_by(email: create_params[:email])
+
+        user = User.find_by(email: create_params[:email].downcase)
+        byebug
         if user && user.authenticate(create_params[:password])
           self.current_user = user
           render json: Api::V1::SessionSerializer.new(user, root: false).to_json, status: 201
+
         else
           render api_error(status: 401)
         end

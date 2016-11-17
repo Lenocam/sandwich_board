@@ -6,7 +6,7 @@ module Api
 
       before_action :destroy_session
       rescue_from ActiveRecord::RecordNotFound, with: :not_found!
-      #rescue_from Pundit::NotAuthorizedError, with :user_not_authorized
+      rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
       attr_accessor :current_user
       protected
@@ -23,9 +23,9 @@ module Api
           render status: 404, json: 'Not here buddy'
         end
 
-        #def user_not_authorized
-        #  render json: {error: "Not authorized to veiw this page"}, status: 401
-        #end
+        def user_not_authorized
+          render json: {error: "Not authorized to veiw this page"}, status: 401
+        end
 
         def authenticated_user!
           token, options = ActionController::HttpAuthentication::Token.token_and_options(request)

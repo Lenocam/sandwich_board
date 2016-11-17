@@ -2,7 +2,6 @@ class UserPolicy
   attr_reader :current_user, :model
 
   def initialize(current_user, model)
-    #byebug
     @current_user = current_user
     @user = model
   end
@@ -13,7 +12,7 @@ class UserPolicy
   end
 
   def show?
-    @current_user
+    @current_user = @user.id
   end
 
 end

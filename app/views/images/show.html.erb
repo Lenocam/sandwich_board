@@ -9,4 +9,6 @@
 	<%= link_to 'Back', :back %>
 	|
 	<%= link_to 'Delete This Image', @image, method: :delete, data: { confirm: "Think about it, do you really want it to end this way?"} %>
+	|
+	<%= link_to 'New Image', new_user_image_path(current_user) %>
 </div>
