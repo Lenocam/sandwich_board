@@ -10,6 +10,7 @@ module Api
 
       attr_accessor :current_user
       protected
+
         def destroy_session
           request.session_options[:skip] = true
         end
